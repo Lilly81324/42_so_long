@@ -6,26 +6,30 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/21 18:47:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/22 17:56:03 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_check_map(char *fd)
+// After get_map_height everyone is free and all files are closed
+int	ft_check_map(t_map *map)
 {
-	t_map	map;
+	int		fd;
+	char	*first_line;
 
-	map.fd = ft_cooler_open(fd);
-	if (map.fd < 0)
-	{
-		perror("ERROR Couldnt open map file");
-		return (-1);
-	}
-	ft_get_height(&map);
-	map.fd = ft_cooler_open(fd);
-	ft_get_width(&map);
-	printf("%i lines\n", map.lines);
+	fd = ft_cooler_open(map->name);
+	if (fd < 0)
+		return (1);
+	first_line = ft_check_first_line(fd);
+	if (first_line == NULL)
+		return (errno);
+	ft_get_map_height(map, fd, first_line);
+	if (ft_get_map_cont(map) != 0)
+		return (1);
+	if (ft_get_map_width(map) != 0)
+		return (1);
+	printf("Map: %s\n%ix%i\nContent:\n", map->name, map->height, map->width);
 	return (0);
 }
 

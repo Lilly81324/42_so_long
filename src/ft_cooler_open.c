@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:11:23 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/21 17:37:40 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/22 17:54:04 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,23 @@ int	ft_cooler_open(char *filename)
 	char	*copy;
 	int		fd;
 
-	i = 2;
-	if (filename[0] == '/')
-		fd = open(filename, O_RDWR);
-	else if (filename[0] == '.' && filename[1] == '/')
+	i = -1;
+	if (filename[0] == '/' || (filename[0] == '.' && filename[1] == '/'))
 		fd = open(filename, O_RDWR);
 	else
 	{
 		copy = (char *)malloc((ft_strlen(filename) + 3) * sizeof(char));
 		copy[0] = '.';
 		copy[1] = '/';
-		while (filename[i - 2] != '\0')
-		{
-			copy[i] = filename[i - 2];
-			i++;
-		}
-		copy[i] = '\0';
+		while (filename[++i] != '\0')
+			copy[i + 2] = filename[i];
+		copy[i + 2] = '\0';
 		fd = open(copy, O_RDWR);
 		free(copy);
 	}
-	return (fd);
+	if (fd > 0)
+		return (fd);
+	errno = 2;
+	perror("Could not open file");
+	return (-1);
 }

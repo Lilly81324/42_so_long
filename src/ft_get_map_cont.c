@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_height.c                                    :+:      :+:    :+:   */
+/*   ft_get_map_cont.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:55:28 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/21 18:55:22 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/22 13:49:06 by sikunne           #+#    #+#             */
+/*   Updated: 2025/01/22 17:56:34 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// gets the amount of lines of content that are in the map
-int	ft_get_height(t_map *map)
+// opens the map by name
+// checks if openable RETUNS -1 if not
+// reads map file into map object
+// closes map file
+int	ft_get_map_cont(t_map *map)
 {
-	int		joever;
+	int		i;
+	int		fd;
 	char	*line;
 
-	joever = 0;
-	line = get_next_line(map->fd);
-	map->lines = 0;
+	i = -1;
+	fd = ft_cooler_open(map->name);
+	if (fd < 0)
+		return (1);
+	map->cont = (char **)malloc((map->height + 1) * sizeof(char *));
+	while (++i < map->height)
+		map->cont[i] = get_next_line(fd);
+	map->cont[i] = NULL;
+	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		if (map->lines > 0 && line[0] == '\n')
-			joever = 1;
-		if (line[0] != '\n' && joever == 0)
-			map->lines++;
 		free(line);
-		line = get_next_line(map->fd);
+		line = get_next_line(fd);
 	}
-	if (line != NULL)
-		free(line);
-	close(map->fd);
+	close(fd);
 	return (0);
 }

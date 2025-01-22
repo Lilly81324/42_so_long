@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_width.c                                     :+:      :+:    :+:   */
+/*   ft_get_map_height.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 18:38:34 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/21 18:55:25 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/21 17:55:28 by sikunne           #+#    #+#             */
+/*   Updated: 2025/01/22 16:27:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// doesnt work
 // gets the amount of lines of content that are in the map
-int	ft_get_width(t_map *map)
+// and saves them in map.height
+// closes the file, since it needs to read through
+void	ft_get_map_height(t_map *map, int fd, char *first_line)
 {
+	int		joever;
 	char	*line;
 
-	line = get_next_line(map->fd);
-	map->width = -1;
-	while (line != NULL && line[0] == '\n')
-	{
-		free(line);
-		line = get_next_line(map->fd);
-	}
+	joever = 0;
+	line = first_line;
+	map->height = 0;
 	while (line != NULL && line[0] != '\n')
 	{
-		if (map->width != -1 && map->width != (int)ft_strlen(line))
-		{
-			printf("ODD\n");
-			free(line);
-			return (-1);
-		}
-		map->width = ft_strlen(line);
-		printf("Breite = %i\n", map->width);
+		map->height++;
 		free(line);
-		line = get_next_line(map->fd);
+		line = get_next_line(fd);
 	}
 	while (line != NULL)
 	{
 		free(line);
-		line = get_next_line(map->fd);
+		line = get_next_line(fd);
 	}
-	close(map->fd);
-	return (0);
+	close(fd);
 }
