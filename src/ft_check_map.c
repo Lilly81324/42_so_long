@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/22 17:56:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/22 18:55:08 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,19 @@ int	ft_check_map(t_map *map)
 		return (1);
 	if (ft_get_map_width(map) != 0)
 		return (1);
-	printf("Map: %s\n%ix%i\nContent:\n", map->name, map->height, map->width);
+	if (ft_get_map_count(map) != 0)
+		return (1);
+	printf("Map: %s\n%ix%i\n", map->name, map->height, map->width);
 	return (0);
 }
 
-// all 1 at the edges
-// map must be rectangle
-// >= 1 collictibles
-// exactly 1 exit and 1 start
-// valid path from start to all collectibles and exit
+// we know map exists, is accesible
+// map starts immediately with content
+// map is the same amount of characters wide
+
+// we have maps dimension as well as local copy
+// content has to be freed, nothing has to be closed
+
+//TODO
+// map consists entirely of valid characters
+// map has specifications as in subject

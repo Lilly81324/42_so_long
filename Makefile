@@ -19,7 +19,10 @@ SOURCE_FILES = $(SRC_DIR)/aa_main.c \
 				$(SRC_DIR)/ft_get_map_height.c \
 				$(SRC_DIR)/ft_get_map_cont.c \
 				$(SRC_DIR)/ft_free_caa.c \
-				$(SRC_DIR)/ft_get_map_width.c
+				$(SRC_DIR)/ft_get_map_width.c \
+				$(SRC_DIR)/ft_get_map_last_width.c \
+				$(SRC_DIR)/ft_get_map_count.c \
+				$(SRC_DIR)/ft_check_valid_chars.c
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 
 all: $(LIBFT_LIB) $(PROGRAM)
