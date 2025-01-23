@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 13:46:19 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:40:21 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_map
 
 typedef struct s_map_cnt
 {
-	int	zero;
 	int	one;
 	int	p;
 	int	e;
@@ -38,18 +37,11 @@ typedef struct s_map_cnt
 	int	other;
 }	t_map_cnt;
 
-int		ft_check_argc(int argc);
 int		ft_check_map(t_map *map);
 int		ft_cooler_open(char *filename);
-char	*ft_check_first_line(int fd);
-void	ft_get_map_height(t_map *map, int fd, char *first_line);
-int		ft_get_map_cont(t_map *map);
 int		ft_free_caa(char **arr, int ret);
 int		ft_get_map_width(t_map *map);
-int		ft_get_map_last_width(t_map *map, int index);
 int		ft_check_map_count(t_map *map);
-int		ft_check_valid_chars(t_map_cnt *map_c);
-void 	ft_set_map_c(t_map_cnt *map);
-int		ft_check_map_edges(t_map *map);
+int		ft_err_msg(const char *str, int err);
 
 #endif
