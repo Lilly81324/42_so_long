@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:54:30 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 18:06:26 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 18:53:51 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,18 @@ int	ft_check_map_path(t_map *map)
 	int			x;
 	int			y;
 	t_map_cnt	map_c;
+	t_map		copy;
 
 	map_c.c = 0;
 	map_c.e = 0;
 	count = ft_count_collectibles(map);
 	ft_get_player_start_pos(map, &x, &y);
-	ft_flood_fill(map, &map_c, x, y);
-	if (map_c.e != count)
+	copy.cont = ft_copy_caa(map->cont);
+	ft_flood_fill(&copy, &map_c, x, y);
+	ft_free_caa(copy.cont, 0);
+	if (map_c.e != 1)
 		return (ft_err_msg("Not enough exits reachable", 5));
-	if (map_c.c != 1)
+	if (map_c.c != count)
 		return (ft_err_msg("Not all collectables reachable", 5));
 	return (0);
 }
