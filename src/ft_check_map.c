@@ -6,42 +6,39 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/22 18:55:08 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 15:14:52 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// After get_map_height everyone is free and all files are closed
+// Open the file and check the first line
+// Then continue checking the rest of the map and count the height
+// Then close the map and read its contents into the map object
+// Read the width of each line and check if one is longer than the rest
+// Count the different characters that are in the map and check them
+// Check that all the edges are 1s
+// return 0 if map is okay
+// otherwise return 1
 int	ft_check_map(t_map *map)
 {
 	int		fd;
 	char	*first_line;
 
 	fd = ft_cooler_open(map->name);
-	if (fd < 0)
+	if (fd != 0)
 		return (1);
 	first_line = ft_check_first_line(fd);
 	if (first_line == NULL)
-		return (errno);
+		return (1);
 	ft_get_map_height(map, fd, first_line);
 	if (ft_get_map_cont(map) != 0)
 		return (1);
 	if (ft_get_map_width(map) != 0)
 		return (1);
-	if (ft_get_map_count(map) != 0)
+	if (ft_check_map_count(map) != 0)
 		return (1);
-	printf("Map: %s\n%ix%i\n", map->name, map->height, map->width);
+	if (ft_check_map_edges(map) != 0)
+		return(1);
 	return (0);
 }
-
-// we know map exists, is accesible
-// map starts immediately with content
-// map is the same amount of characters wide
-
-// we have maps dimension as well as local copy
-// content has to be freed, nothing has to be closed
-
-//TODO
-// map consists entirely of valid characters
-// map has specifications as in subject

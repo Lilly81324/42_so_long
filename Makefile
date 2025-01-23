@@ -1,5 +1,6 @@
 # Remember, the .c and .o files have to be in root and not folders for this project!
 # So we will need to change that at the end
+# Add CFLAGS later
 
 PROGRAM = so_long
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -21,17 +22,19 @@ SOURCE_FILES = $(SRC_DIR)/aa_main.c \
 				$(SRC_DIR)/ft_free_caa.c \
 				$(SRC_DIR)/ft_get_map_width.c \
 				$(SRC_DIR)/ft_get_map_last_width.c \
-				$(SRC_DIR)/ft_get_map_count.c \
-				$(SRC_DIR)/ft_check_valid_chars.c
+				$(SRC_DIR)/ft_check_map_count.c \
+				$(SRC_DIR)/ft_check_valid_chars.c \
+				$(SRC_DIR)/ft_set_map_c.c \
+				$(SRC_DIR)/ft_check_map_edges.c
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 
 all: $(LIBFT_LIB) $(PROGRAM)
 
 $(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB)
-	$(CC) $(C_FLAGS) $(OBJ_FILES) $(LIBFT_LIB) -o $(PROGRAM)
+	$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT_LIB) -o $(PROGRAM)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(C_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir obj

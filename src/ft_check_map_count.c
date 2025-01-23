@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_map_count.c                                 :+:      :+:    :+:   */
+/*   ft_check_map_count.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/22 18:53:51 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 13:29:34 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 // into an object which then gets checked for standards
 // returns 0 if nominal
 // returns 1 if error
-int	ft_get_map_count(t_map *map)
+int	ft_check_map_count(t_map *map)
 {
 	t_map_cnt	map_c;
 	int			i;
 	int			j;
 
 	i = -1;
+	ft_set_map_c(&map_c);
 	while (++i < map->height)
 	{
 		j = -1;

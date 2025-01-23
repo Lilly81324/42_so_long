@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/22 18:45:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 13:46:19 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int		ft_get_map_cont(t_map *map);
 int		ft_free_caa(char **arr, int ret);
 int		ft_get_map_width(t_map *map);
 int		ft_get_map_last_width(t_map *map, int index);
-int		ft_get_map_count(t_map *map);
+int		ft_check_map_count(t_map *map);
 int		ft_check_valid_chars(t_map_cnt *map_c);
+void 	ft_set_map_c(t_map_cnt *map);
+int		ft_check_map_edges(t_map *map);
 
 #endif
