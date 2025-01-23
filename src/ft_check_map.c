@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 16:42:07 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:54:10 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,8 @@ int	ft_check_map(t_map *map)
 	if (ft_check_map_count(map) != 0)
 		return (1);
 	if (ft_check_map_edges(map) != 0)
+		return (1);
+	if (ft_check_map_path(map) != 0)
 		return (1);
 	return (0);
 }

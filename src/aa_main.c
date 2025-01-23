@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 16:51:33 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 17:16:07 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	main(int argc, char *argv[])
 		ft_free_caa(map.cont, 1);
 		return (errno);
 	}
-	printf("Continuing...\n");
+	ft_printf("Continuing...\n");
 	return (ft_free_caa(map.cont, 0));
 }
+
+// Things can be in the map file after the map and one \n
+// Might not be intended behaviour

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 16:40:21 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/23 17:00:53 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int		ft_free_caa(char **arr, int ret);
 int		ft_get_map_width(t_map *map);
 int		ft_check_map_count(t_map *map);
 int		ft_err_msg(const char *str, int err);
+int		ft_check_map_path(t_map *map);
 
 #endif
