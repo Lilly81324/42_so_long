@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 18:26:39 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/24 18:18:12 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 # include "../libft/libft.h"
 # include "../libft/get_next_line.h"
 # include "../libft/ft_printf.h"
+# include "../minilibx-linux/mlx.h"
 # include <stdio.h>
+# include <unistd.h>
 # include <fcntl.h>
 # include <errno.h>
+
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
 
 typedef struct s_map
 {
@@ -28,6 +36,15 @@ typedef struct s_map
 	int		width;
 }	t_map;
 
+typedef struct s_win
+{
+	void	*mlx;
+	void	*win;
+	t_map	*map;
+}	t_win;
+
+// Used to count how many of each character are in the map
+// Called somewhere in ft_check_map
 typedef struct s_map_cnt
 {
 	int	one;
@@ -46,5 +63,6 @@ int		ft_err_msg(const char *str, int err);
 int		ft_check_map_path(t_map *map);
 char	**ft_copy_caa(char **orig);
 void	ft_print_caa(char **map);
+int		ft_run_game(t_map *map);
 
 #endif
