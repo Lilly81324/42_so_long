@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/24 18:18:12 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:49:26 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@
 # define S_KEY 115
 # define D_KEY 100
 # define ESC_KEY 65307
+# define SPRITE_SIZE 64
 
 typedef struct s_map
 {
 	char	*name;
 	int		height;
 	char	**cont;
+	void	***img;
 	int		width;
 }	t_map;
 
@@ -64,5 +66,6 @@ int		ft_check_map_path(t_map *map);
 char	**ft_copy_caa(char **orig);
 void	ft_print_caa(char **map);
 int		ft_run_game(t_map *map);
+void	ft_make_img_map(t_win *win);
 
 #endif
