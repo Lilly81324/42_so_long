@@ -63,7 +63,7 @@ void	ft_make_img_map(t_win *win)
 		j = -1;
 		while (++j < win->map->height)
 			mlx_destroy_image(win->mlx, win->map->img[j][i]);
-		free(win->map->img[j]);
+		free(win->map->img[i]);
 	}
 	free(win->map->img);
 	printf("Over\n");
