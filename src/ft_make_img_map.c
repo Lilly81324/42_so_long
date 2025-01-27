@@ -27,9 +27,8 @@ const char *ft_cont_to_name(char in)
 	return ("apple.xpm");
 }
 
-void	*ft_assign_img(t_win *win, int i, int j)
+void	ft_assign_img(t_win *win, int i, int j)
 {
-	win->map->img[i][j] = (void *)malloc(sizeof(void *));
 	void	*img;
 	img = mlx_xpm_file_to_image(win->mlx, ft_cont_to_name(win->map->\
 	cont[j][i]), SPRITE_SIZE, SPRITE_SIZE);
@@ -53,7 +52,7 @@ void	ft_make_img_map(t_win *win)
 		j = -1;
 		win->map->img[i] = (void **)malloc(win->map->height * sizeof(void *));
 		while (++j < win->map->height)
-			win->map->img = ft_assign_img(win, i, j);
+			ft_assign_img(win, i, j);
 		printf("\n");
 	}
 	sleep(4);
