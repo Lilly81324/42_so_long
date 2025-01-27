@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:32:08 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/27 22:32:02 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 00:03:17 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char *ft_cont_to_name(char in)
 	return ("apple.xpm");
 }
 
+// the column is j
+// the row is i
 void	ft_assign_img(t_win *win, int i, int j)
 {
 	void	*img;
@@ -34,38 +36,34 @@ void	ft_assign_img(t_win *win, int i, int j)
 
 	size = SPRITE_SIZE;
 	img = mlx_xpm_file_to_image(win->mlx, ft_cont_to_name(win->map->\
-	cont[j][i]), &size, &size);
-	mlx_put_image_to_window(win->mlx, win->win, img, (j - 1) * SPRITE_SIZE , (i - 1) * SPRITE_SIZE);
-	win->map->img[j][i] = img;
+	cont[i][j]), &size, &size);
+	mlx_put_image_to_window(win->mlx, win->win, img, j * size, i * size);
+	win->map->img[i][j] = img;
 }
 
+// the column is j - x
+// the row is i - y
+// i j
 void	ft_make_img_map(t_win *win)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	j = -1;
-	printf("\n");
-	printf("%i height\n", win->map->height);
-	printf("%i width\n", win->map->width);
-	win->map->img = (void ***)malloc(win->map->width * sizeof (void **));
-	while (++i < win->map->width)
+	win->map->img = (void ***)malloc(win->map->height * sizeof (void **));
+	while (++i < win->map->height)
 	{
 		j = -1;
-		win->map->img[i] = (void **)malloc(win->map->height * sizeof(void *));
+		win->map->img[i] = (void **)malloc(win->map->width * sizeof (void *));
 		while (++j < win->map->height)
 			ft_assign_img(win, i, j);
-		printf("\n");
 	}
-	sleep(4);
 	i = -1;
-	j = -1;
-	while (++i < win->map->width)
+	while (++i < win->map->height)
 	{
 		j = -1;
-		while (++j < win->map->height)
-			mlx_destroy_image(win->mlx, win->map->img[j][i]);
+		while (++j < win->map->width)
+			mlx_destroy_image(win->mlx, win->map->img[i][j]);
 		free(win->map->img[i]);
 	}
 	free(win->map->img);
