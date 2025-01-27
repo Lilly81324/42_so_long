@@ -6,13 +6,13 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:32:08 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/27 19:06:23 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/27 22:32:02 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-const char *ft_cont_to_name(char in)
+char *ft_cont_to_name(char in)
 {
 	if (in == '1')
 		return ("wall.xpm");
@@ -30,8 +30,11 @@ const char *ft_cont_to_name(char in)
 void	ft_assign_img(t_win *win, int i, int j)
 {
 	void	*img;
+	int		size;
+
+	size = SPRITE_SIZE;
 	img = mlx_xpm_file_to_image(win->mlx, ft_cont_to_name(win->map->\
-	cont[j][i]), SPRITE_SIZE, SPRITE_SIZE);
+	cont[j][i]), &size, &size);
 	mlx_put_image_to_window(win->mlx, win->win, img, (j - 1) * SPRITE_SIZE , (i - 1) * SPRITE_SIZE);
 	win->map->img[j][i] = img;
 }
