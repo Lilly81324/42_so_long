@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/27 23:29:31 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:00:28 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ typedef struct s_map
 	char	*name;
 	int		height;
 	char	**cont;
-	void	***img;
 	int		width;
+	int		p_x;
+	int		p_y;
+	int		c_tot;
+	int		c_got;
 }	t_map;
 
 typedef struct s_win
 {
 	void	*mlx;
 	void	*win;
+	void	***img;
 	t_map	*map;
 }	t_win;
 

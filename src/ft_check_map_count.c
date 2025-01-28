@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 16:33:06 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:02:57 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int	ft_check_map_count(t_map *map)
 				map_c.other++;
 		}
 	}
+	map->c_tot = map_c.c;
 	return (ft_check_valid_chars(&map_c));
 }

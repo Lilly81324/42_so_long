@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:54:30 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 18:53:51 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 13:40:45 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static int	ft_count_collectibles(t_map *map)
 }
 
 // get the x and y coordinate of player when starting
-static void	ft_get_player_start_pos(t_map *map, int *x, int *y)
+static void	ft_get_player_start_pos(t_map *map)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	*x = -1;
-	*y = -1;
+	map->p_x = -1;
+	map->p_y = -1;
 	while (++i < map->height)
 	{
 		j = -1;
@@ -49,8 +49,8 @@ static void	ft_get_player_start_pos(t_map *map, int *x, int *y)
 		{
 			if (map->cont[i][j] == 'P')
 			{
-				*y = i;
-				*x = j;
+				map->p_y = i;
+				map->p_x = j;
 				return ;
 			}
 		}
@@ -90,9 +90,9 @@ int	ft_check_map_path(t_map *map)
 	map_c.c = 0;
 	map_c.e = 0;
 	count = ft_count_collectibles(map);
-	ft_get_player_start_pos(map, &x, &y);
+	ft_get_player_start_pos(map);
 	copy.cont = ft_copy_caa(map->cont);
-	ft_flood_fill(&copy, &map_c, x, y);
+	ft_flood_fill(&copy, &map_c, map->p_x, map->p_y);
 	ft_free_caa(copy.cont, 0);
 	if (map_c.e != 1)
 		return (ft_err_msg("Not enough exits reachable", 5));

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/27 18:53:42 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 14:17:07 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,50 @@ void	end(t_win *win)
 	exit(ft_free_caa(win->map->cont, 0));
 }
 
+void	ft_move_player(t_win *win, int x, int y)
+{
+	win->map->cont[win->map->p_y][win->map->p_x] = '0';
+	win->map->cont[y][x] = 'P';
+	win->map->p_x = x;
+	win->map->p_y = y;
+}
+
+// returns 0 if movement in the direction is possible
+// returns 1 if invalid or not possible
+// dir -> change in coords:
+// W: -10 = -y, S: +10 = +y
+// A: -01 = -x, D: +01 = +x
+int ft_move(t_win *win, int dir)
+{
+	int	x;
+	int	y;
+
+	x = win->map->p_x + (dir % 10);
+	y = win->map->p_y + (dir / 10);
+	if (win->map->cont[y][x] == '1')
+		return (1);
+	else if (win->map->cont[y][x] == 'E' && win->map->c_got != win->map->c_tot)
+		return (1);
+	else if (win->map->cont[y][x] == 'E')
+		end(win);
+	else if (win->map->cont[y][x] == 'C')
+		win->map->c_got++;
+	ft_move_player(win, x, y);
+	ft_make_img_map(win);
+	return (0);
+}
+
+
 int	key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
-		printf("W\n");
+		ft_move(win, -10);
 	else if (keycode == A_KEY)
-		printf("A\n");
+		ft_move(win, -01);
 	else if (keycode == S_KEY)
-		printf("S\n");
+		ft_move(win, 10);
 	else if (keycode == D_KEY)
-		printf("D\n");
+		ft_move(win, 01);
 	else if (keycode == ESC_KEY)
 		end(win);
 	else
@@ -37,42 +71,15 @@ int	key(int keycode, t_win *win)
 	return (0);
 }
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-void	ft_display(t_win *win)
-{
-	void	*img;
-	void	*img2;
-	int		*height;
-	int		*width;
-	int		h;
-	int		w;
-
-	h = 50;
-	w = 50;
-	height = &h;
-	width = &w;
-	img = mlx_xpm_file_to_image(win->mlx, "wall.xpm", width, height);
-	mlx_put_image_to_window(win->mlx, win->win, img, 0, 0);
-	img2 = mlx_xpm_file_to_image(win->mlx, "wall.xpm", width, height);
-	mlx_put_image_to_window(win->mlx, win->win, img2, 64, 0);
-	mlx_destroy_image(win->mlx, img);
-	mlx_destroy_image(win->mlx, img2);
-}
-
 int	ft_run_game(t_map *map)
 {
 	t_win	win;
 
+	map->c_got = 0;
 	win.map = map;
 	win.mlx = mlx_init();
-	win.win = mlx_new_window(win.mlx, map->width * 64, map->height * 64, "Name");
+	win.win = mlx_new_window(win.mlx, map->width * SPRITE_SIZE, map->height\
+							 * SPRITE_SIZE, "So_long");
 	ft_make_img_map(&win);
 	mlx_key_hook(win.win, key, &win);
 	mlx_mouse_hook(win.win, key, &win);
