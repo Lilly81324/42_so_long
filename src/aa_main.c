@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 14:13:25 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 17:57:57 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char *argv[])
 		return (ft_free_caa(map.cont, errno));
 	return (ft_free_caa(map.cont, 0));
 }
+
+// Make sure the necessary files exist and can be accessed before continuing
 
 // Things can be in the map file after the map and one \n
 // Might not be intended behaviour
