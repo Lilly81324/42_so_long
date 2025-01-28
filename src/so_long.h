@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 14:00:28 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/28 17:45:12 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@
 # define D_KEY 100
 # define ESC_KEY 65307
 # define SPRITE_SIZE 64
+# define CLOSE_BUTTON -16777128
 
+// map object that represents play area
 typedef struct s_map
 {
 	char	*name;
@@ -39,18 +41,12 @@ typedef struct s_map
 	int		p_y;
 	int		c_tot;
 	int		c_got;
+	int		moves;
 }	t_map;
-
-typedef struct s_win
-{
-	void	*mlx;
-	void	*win;
-	void	***img;
-	t_map	*map;
-}	t_win;
 
 // Used to count how many of each character are in the map
 // Called somewhere in ft_check_map
+// otherwise irrelevant
 typedef struct s_map_cnt
 {
 	int	one;
@@ -60,6 +56,27 @@ typedef struct s_map_cnt
 	int	other;
 }	t_map_cnt;
 
+// image object which holds the images of the map
+typedef struct s_img
+{
+	void	*wall;
+	void	*empty;
+	void	*player;
+	void	*coin;
+	void	*exit;
+}	t_img;
+
+// window object which holds map, images and windows
+// as well as mlx pointer
+typedef struct s_win
+{
+	void	*mlx;
+	void	*win;
+	t_img	*img;
+	t_map	*map;
+}	t_win;
+
+// Validating and setting up map obect
 int		ft_check_map(t_map *map);
 int		ft_cooler_open(char *filename);
 int		ft_free_caa(char **arr, int ret);
@@ -69,7 +86,12 @@ int		ft_err_msg(const char *str, int err);
 int		ft_check_map_path(t_map *map);
 char	**ft_copy_caa(char **orig);
 void	ft_print_caa(char **map);
+
+// Actual Game
 int		ft_run_game(t_map *map);
-void	ft_make_img_map(t_win *win);
+void	ft_display_map(t_win *win);
+int 	ft_move(t_win *win, int dir);
+void	ft_make_images(t_win *win);
+void	end(t_win *win);
 
 #endif

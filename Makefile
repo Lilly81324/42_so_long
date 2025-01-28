@@ -26,7 +26,10 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_copy_caa.c \
 				ft_print_caa.c \
 				ft_run_game.c \
-				ft_make_img_map.c)
+				ft_display_map.c \
+				ft_move.c \
+				ft_end.c \
+				ft_make_images.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 
 all: $(MLX_LIB) $(PROGRAM)
