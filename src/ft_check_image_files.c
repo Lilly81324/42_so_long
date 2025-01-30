@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:31:59 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:54:30 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:06:21 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_check_file(const char *file)
 	if (fd < 0)
 	{
 		close (fd);
-		ft_printf("ERROR Could not open %s\n", file);
+		ft_printf("Could not open %s\n", file);
 		return (1);
 	}
 	close (fd);
@@ -38,6 +38,6 @@ int	ft_check_image_files(void)
 	sum += ft_check_file(COIN_TEXTURE);
 	sum += ft_check_file(EXIT_TEXTURE);
 	if (sum > 0)
-		return (ft_err_msg("ERROR Couldnt open all textures", 2));
+		return (ft_err_msg("Couldnt open all textures", 2));
 	return (0);
 }

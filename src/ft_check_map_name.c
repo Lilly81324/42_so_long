@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:39 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:27:55 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:08:58 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ int	ft_check_map_name(t_map *map)
 	int	i;
 
 	if (map->name == NULL)
-		return (ft_err_msg("ERROR Map name is null", 2));
+		return (ft_err_msg("Map name is null", 2));
 	if (map->name[0] == '\0')
-		return (ft_err_msg("ERROR Map name is empty", 2));
+		return (ft_err_msg("Map name is empty", 2));
 	i = 0;
 	while (map->name[i] != '\0')
 		i++;
 	if (i < 5)
-		return (ft_err_msg("ERROR Map name too short to end in .ber", 5));
+		return (ft_err_msg("Map name too short to end in .ber", 5));
 	if (ft_ends_in(".ber", 4, map->name) == 1)
-		return (ft_err_msg("ERROR File does not end in '.ber'", 5));
+		return (ft_err_msg("File does not end in '.ber'", 5));
 	return (0);
 }

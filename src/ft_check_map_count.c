@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 14:02:57 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:13:51 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,17 @@ static int	ft_check_valid_chars(t_map_cnt *map_c)
 {
 	errno = 5;
 	if (map_c->one < 1)
-		perror("ERROR Not enough 1s in map");
+		return(ft_err_msg("Not enough 1s in map", 5));
 	else if (map_c->p != 1)
-		perror("ERROR Wrong amount of players, exactly 1");
+		return(ft_err_msg("Wrong amount of players, exactly 1", 5));
 	else if (map_c->c < 1)
-		perror("ERROR Not enough collectibles, min is 1");
+		return(ft_err_msg("Not enough collectibles, min is 1", 5));
 	else if (map_c->e != 1)
-		perror("ERROR Wrong amount of exits, exactly 1");
+		return(ft_err_msg("Wrong amount of exits, exactly 1", 5));
 	else if (map_c->other > 0)
-		perror("ERROR Invalid character found in map");
+		return(ft_err_msg("Invalid character found in map", 5));
 	else
 		return (0);
-	return (1);
 }
 
 // Saves the amount of each character in the map

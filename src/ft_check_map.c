@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:54:04 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:10:36 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static char	*ft_check_first_line(int fd)
 	first_line = get_next_line(fd);
 	if (first_line == NULL || first_line[0] == '\0' || first_line[0] == '\n')
 	{
-		perror("ERROR Map File is empty or invalid");
+		ft_printf("Error\n");
+		perror("Map File is empty or invalid");
 		free(first_line);
 		first_line = NULL;
 	}
@@ -102,7 +103,7 @@ static int	ft_check_map_edges(t_map *map)
 	char	*err;
 
 	i = -1;
-	err = "ERROR Map not properly enclosed";
+	err = "Map not properly enclosed";
 	while (++i < map->width)
 	{
 		if (map->cont[0][i] != '1')

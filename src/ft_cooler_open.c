@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:11:23 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:54:00 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:12:19 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int	ft_cooler_open(char *filename, int mode)
 		return (fd);
 	errno = 2;
 	if (mode == 0)
-		perror("ERROR Could not open file");
+		ft_err_msg("Could not open file", 2);
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:54:05 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/27 18:24:35 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:13:06 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_get_map_width(t_map *map)
 
 	map->width = ft_strlen(map->cont[0]);
 	i = 0;
-	err = "ERROR Map is not rectangular (width)";
+	err = "Map is not rectangular (width)";
 	while (i < map->height - 1)
 	{
 		if (map->width != (int)ft_strlen(map->cont[i]))
