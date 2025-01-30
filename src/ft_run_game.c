@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 18:10:13 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:14:14 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	key(int keycode, t_win *win)
 		ft_move(win, 01);
 	else if (keycode == ESC_KEY)
 		ft_quit_end(win);
-	else
-		ft_printf("|%i|\n", keycode);
 	return (0);
 }
 
