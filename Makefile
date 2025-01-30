@@ -29,6 +29,7 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_check_image_files.c \
 				ft_display_map.c \
 				ft_move.c \
+				ft_quit_end.c \
 				ft_end.c \
 				ft_make_images.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))

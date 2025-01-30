@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:19:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 17:50:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:08:52 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ static void	ft_destroy_images(t_win *win)
 // called when programm should end
 // closes windows, frees open things
 // and then exits with 0
-void	end(t_win *win)
+int	ft_end(t_win *win)
 {
 	ft_destroy_images(win);
 	mlx_destroy_window(win->mlx, win->win);
 	mlx_destroy_display(win->mlx);
 	free(win->mlx);
-	exit(ft_free_caa(win->map->cont, 0));
+	ft_free_caa(win->map->cont, 0);
+	exit(0);
 }

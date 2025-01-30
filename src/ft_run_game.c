@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:34:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:57:45 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	key(int keycode, t_win *win)
 	else if (keycode == D_KEY)
 		ft_move(win, 01);
 	else if (keycode == ESC_KEY)
-		end(win);
+		ft_quit_end(win);
 	else
 		ft_printf("|%i|\n", keycode);
 	return (0);
@@ -48,7 +48,7 @@ int	ft_run_game(t_map *map)
 	ft_make_images(&win);
 	ft_display_map(&win);
 	mlx_key_hook(win.win, key, &win);
-	mlx_hook(win.win, 17, 0, end, &win);
+	mlx_hook(win.win, 17, 1L << 2, ft_quit_end, &win);
 	mlx_loop(win.mlx);
 	return (0);
 }

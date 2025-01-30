@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 16:19:50 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:05:26 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ static void	ft_move_player(t_win *win, int x, int y)
 // so not when intentionally closed, but only when exit reached
 static void	ft_moved_to_end(t_win *win)
 {
-	ft_printf("Well done Tenno. You reached the exit in *just* %i moves\n"\
+	ft_printf("\n-----Mission Results------\n\n");
+	ft_printf("Well done Tenno. You reached the exit in %i moves\n"\
 	, win->map->moves);
-	end(win);
+	ft_printf("You managed to bring back all %i Endo\n", win->map->c_tot);
+	ft_printf("-----------------------------\n");
+	ft_end(win);
 }
 
+// Displayed every succedsfull move
 static void	ft_display_message(t_win *win)
 {
 	int	got;

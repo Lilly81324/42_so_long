@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:31:59 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 17:06:21 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:51:09 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_check_file(const char *file)
 {
 	int	fd;
 
-	fd = ft_cooler_open(file, 1);
+	fd = ft_cooler_open((char *)file, 1);
 	if (fd < 0)
 	{
 		close (fd);
