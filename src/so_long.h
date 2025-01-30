@@ -97,6 +97,7 @@ char	**ft_copy_caa(char **orig);
 // Actual Game
 int		ft_run_game(t_map *map);
 int		ft_check_image_files(void);
+void   *ft_cont_to_img(t_win *win, char in);
 void	ft_make_images(t_win *win);
 void	ft_display_map(t_win *win);
 int		ft_move(t_win *win, int dir);
