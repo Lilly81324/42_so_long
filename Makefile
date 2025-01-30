@@ -17,6 +17,7 @@ MLX_FLAGS = -Lmlx_linux -Imlx_linux -lX11 -lXext -lm -lz -Ofast
 
 SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_check_map.c \
+				ft_check_map_name.c \
 				ft_cooler_open.c \
 				ft_free_caa.c \
 				ft_get_map_width.c \
@@ -24,8 +25,8 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_err_msg.c \
 				ft_check_map_path.c \
 				ft_copy_caa.c \
-				ft_print_caa.c \
 				ft_run_game.c \
+				ft_check_image_files.c \
 				ft_display_map.c \
 				ft_move.c \
 				ft_end.c \

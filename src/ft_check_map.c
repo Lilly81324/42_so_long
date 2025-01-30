@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 16:54:10 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:54:04 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_get_map_height(t_map *map, int fd, char *first_line)
 }
 
 // opens the map by name
-// checks if openable RETUNS -1 if not
+// checks if openable RETURNS -1 if not
 // reads map file into map object
 // closes map file
 static int	ft_get_map_cont(t_map *map)
@@ -75,7 +75,7 @@ static int	ft_get_map_cont(t_map *map)
 	char	*line;
 
 	i = -1;
-	fd = ft_cooler_open(map->name);
+	fd = ft_cooler_open(map->name, 0);
 	if (fd < 0)
 		return (1);
 	map->cont = (char **)malloc((map->height + 1) * sizeof(char *));
@@ -138,7 +138,9 @@ int	ft_check_map(t_map *map)
 	int		fd;
 	char	*first_line;
 
-	fd = ft_cooler_open(map->name);
+	if (ft_check_map_name(map) != 0)
+		return (1);
+	fd = ft_cooler_open(map->name, 0);
 	if (fd < 0)
 		return (1);
 	first_line = ft_check_first_line(fd);

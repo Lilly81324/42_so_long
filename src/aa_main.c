@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 17:57:57 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:59:23 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	main(int argc, char *argv[])
 		ft_free_caa(map.cont, 1);
 		return (errno);
 	}
-	
-	ft_printf("Continuing with valid map\n");
-	// ft_print_caa(map.cont);
 	if (ft_run_game(&map) != 0)
 		return (ft_free_caa(map.cont, errno));
 	return (ft_free_caa(map.cont, 0));

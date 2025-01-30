@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_make_img_map.c                                  :+:      :+:    :+:   */
+/*   ft_display_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:32:08 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 17:27:18 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:43:20 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // turns each character from the map object
 // into the respective image from the image object
-void *ft_cont_to_img(t_win *win, char in)
+void	*ft_cont_to_img(t_win *win, char in)
 {
 	if (in == '1')
 		return (win->img->wall);

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:18:29 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/29 02:03:26 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:31:28 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_make_images(t_win *win)
 {
-	t_img *images;
-	int	si;
+	t_img	*img;
+	int		si;
 
 	si = SPRITE_SIZE;
-	images = (t_img *)malloc(sizeof(t_img));
-	images->wall = mlx_xpm_file_to_image(win->mlx, "wall.xpm", &si, &si);
-	images->empty = mlx_xpm_file_to_image(win->mlx, "free.xpm", &si, &si);
-	images->coin = mlx_xpm_file_to_image(win->mlx, "coin.xpm", &si, &si);
-	images->player = mlx_xpm_file_to_image(win->mlx, "player.xpm", &si, &si);
-	images->exit = mlx_xpm_file_to_image(win->mlx, "exit.xpm", &si, &si);
-	win->img = images;
+	img = (t_img *)malloc(sizeof(t_img));
+	img->wall = mlx_xpm_file_to_image(win->mlx, WALL_TEXTURE, &si, &si);
+	img->empty = mlx_xpm_file_to_image(win->mlx, FLOOR_TEXTUE, &si, &si);
+	img->coin = mlx_xpm_file_to_image(win->mlx, COIN_TEXTURE, &si, &si);
+	img->player = mlx_xpm_file_to_image(win->mlx, PLAYER_TEXTURE, &si, &si);
+	img->exit = mlx_xpm_file_to_image(win->mlx, EXIT_TEXTURE, &si, &si);
+	win->img = img;
 }

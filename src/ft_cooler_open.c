@@ -6,19 +6,20 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:11:23 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/22 17:54:04 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:54:00 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // translates files that have no ./ in front but should, into ./file
+// if <mode> is 0 then it perrors, otherwise it stays quiet
 // three cases:
 // works for absoulte paths like /home/sikunne/file.exe
 // and also for relative paths file.exe, ./file.exe, dir/file.exe
 // allocates and frees itself
 // returns the opened fd, which needs to be closed later
-int	ft_cooler_open(char *filename)
+int	ft_cooler_open(char *filename, int mode)
 {
 	int		i;
 	char	*copy;
@@ -41,6 +42,7 @@ int	ft_cooler_open(char *filename)
 	if (fd > 0)
 		return (fd);
 	errno = 2;
-	perror("Could not open file");
+	if (mode == 0)
+		perror("ERROR Could not open file");
 	return (-1);
 }

@@ -21,3 +21,5 @@ git checkout <branchname>
 Delete local branch
 git branch -d <branchname>
 
+Reset file to last commit
+git checkout origin/main -- path/to/file

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 17:45:12 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:57:10 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 # define ESC_KEY 65307
 # define SPRITE_SIZE 64
 # define CLOSE_BUTTON -16777128
+# define WALL_TEXTURE "wall.xpm"
+# define FLOOR_TEXTUE "free.xpm"
+# define PLAYER_TEXTURE "player1.xpm"
+# define COIN_TEXTURE "coin.xpm"
+# define EXIT_TEXTURE "exit.xpm"
 
 // map object that represents play area
 typedef struct s_map
@@ -76,22 +81,25 @@ typedef struct s_win
 	t_map	*map;
 }	t_win;
 
+// Utilities used everywhere
+int		ft_free_caa(char **arr, int ret);
+int		ft_err_msg(const char *str, int err);
+
 // Validating and setting up map obect
 int		ft_check_map(t_map *map);
-int		ft_cooler_open(char *filename);
-int		ft_free_caa(char **arr, int ret);
+int		ft_check_map_name(t_map *map);
+int		ft_cooler_open(char *filename, int mode);
 int		ft_get_map_width(t_map *map);
 int		ft_check_map_count(t_map *map);
-int		ft_err_msg(const char *str, int err);
 int		ft_check_map_path(t_map *map);
 char	**ft_copy_caa(char **orig);
-void	ft_print_caa(char **map);
 
 // Actual Game
 int		ft_run_game(t_map *map);
-void	ft_display_map(t_win *win);
-int 	ft_move(t_win *win, int dir);
+int		ft_check_image_files(void);
 void	ft_make_images(t_win *win);
+void	ft_display_map(t_win *win);
+int		ft_move(t_win *win, int dir);
 void	end(t_win *win);
 
 #endif
