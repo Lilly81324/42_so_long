@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 18:05:26 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 20:31:58 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@
 // then updates player coordinates
 static void	ft_move_player(t_win *win, int x, int y)
 {
-void *img;
+	void	*img;
+	int		si;
+
+	si = BUFFER_SIZE;
 	win->map->cont[win->map->p_y][win->map->p_x] = '0';
-img = ft_cont_to_img(win, '0');
-mlx_image_to_window(win);
+	img = ft_cont_to_img(win, '0');
+	mlx_put_image_to_window(win->mlx, win->win, img, win->map->p_x * si, win->map->p_y * si);
+	printf("Placing empty at x%i y%i\n", win->map->p_x, win->map->p_y);
 	win->map->cont[y][x] = 'P';
+	img = ft_cont_to_img(win, 'P');
+	mlx_put_image_to_window(win->mlx, win->win, img, x * si, y * si);
+	printf("and Placing player at x%i y%i\n", x, y);
 	win->map->p_x = x;
 	win->map->p_y = y;
 }

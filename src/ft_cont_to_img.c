@@ -1,4 +1,4 @@
-#include "so_long.h
+#include "so_long.h"
 
 // turns each character from the map object
 // into the respective image from the image object
