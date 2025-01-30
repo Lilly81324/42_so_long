@@ -18,7 +18,10 @@
 // then updates player coordinates
 static void	ft_move_player(t_win *win, int x, int y)
 {
+void *img;
 	win->map->cont[win->map->p_y][win->map->p_x] = '0';
+img = ft_cont_to_img(win, '0');
+mlx_image_to_window(win);
 	win->map->cont[y][x] = 'P';
 	win->map->p_x = x;
 	win->map->p_y = y;
