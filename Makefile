@@ -27,6 +27,7 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_copy_caa.c \
 				ft_run_game.c \
 				ft_check_image_files.c \
+  ft_cont_to_img.c \
 				ft_display_map.c \
 				ft_move.c \
 				ft_quit_end.c \
