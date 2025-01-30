@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:54:30 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/28 13:40:45 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:36:01 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,18 @@ static void	ft_get_player_start_pos(t_map *map)
 	}
 }
 
-// goes into a fixed direction until it reaches a 1
-// if it reaches a C
-// right now flood fill might hight a C multiple times
-// so we cannot really just count the Cs
 static void	ft_flood_fill(t_map *map, t_map_cnt *map_c, int x, int y)
 {
 	if (map->cont[y][x] == 'X' || map->cont[y][x] == '1')
 		return ;
+	if (map->cont[y][x] == 'E')
+	{
+		map_c->e++;
+		map->cont[y][x] = 'X';
+		return ;
+	}
 	if (map->cont[y][x] == 'C')
 		map_c->c++;
-	else if (map->cont[y][x] == 'E')
-		map_c->e++;
 	map->cont[y][x] = 'X';
 	ft_flood_fill(map, map_c, x +1, y);
 	ft_flood_fill(map, map_c, x -1, y);
