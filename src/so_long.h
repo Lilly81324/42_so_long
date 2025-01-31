@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:38:11 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 14:57:01 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define CLOSE_BUTTON -16777128
 # define WALL_TEXTURE "wall.xpm"
 # define FLOOR_TEXTUE "free.xpm"
-# define PLAYER_TEXTURE "player1.xpm"
+# define PLAYER_TEXTURE "player.xpm"
 # define COIN_TEXTURE "coin.xpm"
 # define EXIT_TEXTURE "exit.xpm"
 
