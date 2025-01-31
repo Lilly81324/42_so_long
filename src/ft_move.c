@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:52:04 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 15:12:55 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_move_player(t_win *win, int x, int y)
 	void	*img;
 	int		si;
 
-	si = BUFFER_SIZE;
+	si = SPRITE_SIZE;
 	win->map->cont[win->map->p_y][win->map->p_x] = '0';
 	img = ft_cont_to_img(win, '0');
 	mlx_put_image_to_window(win->mlx, win->win, img, \
@@ -82,6 +82,5 @@ int	ft_move(t_win *win, int dir)
 	if (win->map->cont[y][x] == 'E')
 		ft_end_win(win);
 	ft_move_player(win, x, y);
-	ft_display_map(win);
 	return (0);
 }
