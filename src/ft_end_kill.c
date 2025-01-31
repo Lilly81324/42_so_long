@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_end_quit.c                                      :+:      :+:    :+:   */
+/*   ft_end_kill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:54:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 17:40:42 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/31 17:39:33 by sikunne           #+#    #+#             */
+/*   Updated: 2025/01/31 17:42:43 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_end_quit(t_win *win)
+void	ft_end_kill(t_win *win)
 {
+	int	x;
+	int	y;
+
+	x = win->map->p_x;
+	y = win->map->p_y;
 	ft_printf("\n-----Mission Results------\n\n");
-	ft_printf("You have aborted the mission, Tenno.\n");
-	ft_printf("The Grineer will get to keep their Endo for another day.\n\n");
+	ft_printf("You were caught and defeated, Tenno.\n");
+	ft_printf("Next time be more carefull around %i %i.\n\n", x, y);
 	ft_printf("-----------------------------\n");
 	ft_end(win);
-	return (0);
+	return ;
 }

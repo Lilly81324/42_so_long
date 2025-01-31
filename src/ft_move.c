@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 15:12:55 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 17:44:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	ft_move_player(t_win *win, int x, int y)
 				x * si, y * si);
 	win->map->p_x = x;
 	win->map->p_y = y;
+	ft_enemy(win);
 }
 
 // Displayed every succedsfull move
@@ -62,15 +63,15 @@ static void	ft_display_message(t_win *win)
 // moves player into direction and returns 0 if possible
 // returns 1 if invalid move or not possible
 // KEY: dir = change in coords:
-// W: 	-10 = -y, 				S: +10 = +y
-// A: 	-01 = -x, 				D: +01 = +x
+// A: 	-10 = -x, 				D: +10 = +x
+// W: 	-01 = -y, 				S: +01 = +y
 int	ft_move(t_win *win, int dir)
 {
 	int	x;
 	int	y;
 
-	x = win->map->p_x + (dir % 10);
-	y = win->map->p_y + (dir / 10);
+	x = win->map->p_x + (dir / 10);
+	y = win->map->p_y + (dir % 10);
 	if (win->map->cont[y][x] == '1')
 		return (1);
 	else if (win->map->cont[y][x] == 'E' && win->map->c_got != win->map->c_tot)

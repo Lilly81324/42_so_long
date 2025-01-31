@@ -33,7 +33,13 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_end_quit.c \
 				ft_end_win.c \
 				ft_end.c \
-				ft_make_images.c)
+				ft_make_images.c \
+				ft_enemy_bonus.c \
+				ft_enemy_bounce_bonus.c \
+				ft_enemy_recharge_bonus.c \
+				ft_enemy_decis_bonus.c \
+				ft_enemy_move_bonus.c \
+				ft_end_kill.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 
 all: $(MLX_LIB) $(PROGRAM)

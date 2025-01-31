@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:36:48 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:34:34 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
-		ft_move(win, -10);
-	else if (keycode == A_KEY)
 		ft_move(win, -01);
+	else if (keycode == A_KEY)
+		ft_move(win, -10);
 	else if (keycode == S_KEY)
-		ft_move(win, 10);
-	else if (keycode == D_KEY)
 		ft_move(win, 01);
+	else if (keycode == D_KEY)
+		ft_move(win, 10);
 	else if (keycode == ESC_KEY)
 		ft_end_quit(win);
 	return (0);

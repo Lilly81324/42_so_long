@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:51:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:04:59 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_set_map_c(t_map_cnt *map)
 	map->e = 0;
 	map->p = 0;
 	map->one = 0;
+	map->enemies = 0;
 	map->other = 0;
 }
 
@@ -40,6 +41,25 @@ static int	ft_check_valid_chars(t_map_cnt *map_c)
 		return (0);
 }
 
+// counts the respective counter up for the given coords
+static void	ft_add_map_c(t_map *map, t_map_cnt *map_c, int i, int j)
+{
+	if (map->cont[i][j] == '1')
+		map_c->one++;
+	else if (map->cont[i][j] == 'P')
+		map_c->p++;
+	else if (map->cont[i][j] == 'C')
+		map_c->c++;
+	else if (map->cont[i][j] == 'E')
+		map_c->e++;
+	else if (map->cont[i][j] == '0')
+		return ;
+	else if (ft_char_in_str("URDL", map->cont[i][j]) == 1)
+		return ;
+	else
+		map_c->other++;
+}
+
 // Saves the amount of each character in the map
 // into an object which then gets checked for standards
 // returns 0 if nominal
@@ -56,18 +76,7 @@ int	ft_check_map_count(t_map *map)
 	{
 		j = -1;
 		while (++j < map->width)
-		{
-			if (map->cont[i][j] == '1')
-				map_c.one++;
-			else if (map->cont[i][j] == 'P')
-				map_c.p++;
-			else if (map->cont[i][j] == 'C')
-				map_c.c++;
-			else if (map->cont[i][j] == 'E')
-				map_c.e++;
-			else if (map->cont[i][j] != '0')
-				map_c.other++;
-		}
+			ft_add_map_c(map, &map_c, i, j);
 	}
 	map->c_tot = map_c.c;
 	return (ft_check_valid_chars(&map_c));

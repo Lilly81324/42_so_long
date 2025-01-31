@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:50:21 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 17:34:23 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,7 @@ int	main(int argc, char *argv[])
 		return (ft_free_caa(map.cont, errno));
 	return (ft_free_caa(map.cont, 0));
 }
+
+// do different check for valid map chars in ft_check_map_count
+
+// maybe make bounces also move in their turn
