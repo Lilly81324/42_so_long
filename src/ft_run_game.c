@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int	key(int keycode, t_win *win)
+staic int key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
 		ft_move(win, -01);
