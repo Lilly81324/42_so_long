@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	ft_end_kill(t_win *win)
+void ft_end_kill_bonus(t_win *win)
 {
 	int	x;
 	int	y;
