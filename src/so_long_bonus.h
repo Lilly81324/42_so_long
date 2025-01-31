@@ -3,6 +3,7 @@
 
 # include "so_long.h"
 
-int        ft_check_map(t_map *map);
+int        ft_check_map_bonus(t_map *map);
+int        ft_check_map_count_bonus(t_map *map);
 
-#endig
+#endif
