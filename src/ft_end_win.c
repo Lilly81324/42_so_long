@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quit_end.c                                      :+:      :+:    :+:   */
+/*   ft_end_win.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 17:54:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 18:06:40 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/31 14:34:34 by sikunne           #+#    #+#             */
+/*   Updated: 2025/01/31 14:38:38 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_quit_end(t_win *win)
+// called when player exits programm through movements
+// so not when intentionally closed, but only when exit reached
+void	ft_end_win(t_win *win)
 {
 	ft_printf("\n-----Mission Results------\n\n");
-	ft_printf("You have aborted the mission Tenno.\n");
-	ft_printf("The Grineer will get to keep their Endo for another day.\n");
+	ft_printf("Well done Tenno. You reached the exit in %i moves\n"\
+	, win->map->moves);
+	ft_printf("You managed to bring back all %i Endo\n\n", win->map->c_tot);
 	ft_printf("-----------------------------\n");
 	ft_end(win);
-	return (0);
 }

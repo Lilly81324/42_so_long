@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 20:31:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 14:52:04 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,14 @@ static void	ft_move_player(t_win *win, int x, int y)
 	si = BUFFER_SIZE;
 	win->map->cont[win->map->p_y][win->map->p_x] = '0';
 	img = ft_cont_to_img(win, '0');
-	mlx_put_image_to_window(win->mlx, win->win, img, win->map->p_x * si, win->map->p_y * si);
-	printf("Placing empty at x%i y%i\n", win->map->p_x, win->map->p_y);
+	mlx_put_image_to_window(win->mlx, win->win, img, \
+				win->map->p_x * si, win->map->p_y * si);
 	win->map->cont[y][x] = 'P';
 	img = ft_cont_to_img(win, 'P');
-	mlx_put_image_to_window(win->mlx, win->win, img, x * si, y * si);
-	printf("and Placing player at x%i y%i\n", x, y);
+	mlx_put_image_to_window(win->mlx, win->win, img, \
+				x * si, y * si);
 	win->map->p_x = x;
 	win->map->p_y = y;
-}
-
-// called when player exits programm through movements
-// so not when intentionally closed, but only when exit reached
-static void	ft_moved_to_end(t_win *win)
-{
-	ft_printf("\n-----Mission Results------\n\n");
-	ft_printf("Well done Tenno. You reached the exit in %i moves\n"\
-	, win->map->moves);
-	ft_printf("You managed to bring back all %i Endo\n", win->map->c_tot);
-	ft_printf("-----------------------------\n");
-	ft_end(win);
 }
 
 // Displayed every succedsfull move
@@ -92,7 +80,7 @@ int	ft_move(t_win *win, int dir)
 	win->map->moves++;
 	ft_display_message(win);
 	if (win->map->cont[y][x] == 'E')
-		ft_moved_to_end(win);
+		ft_end_win(win);
 	ft_move_player(win, x, y);
 	ft_display_map(win);
 	return (0);

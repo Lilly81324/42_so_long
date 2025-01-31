@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 18:13:22 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 14:50:21 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,3 @@ int	main(int argc, char *argv[])
 		return (ft_free_caa(map.cont, errno));
 	return (ft_free_caa(map.cont, 0));
 }
-
-// Make it so images are only rendered when the player moves there
-// Make sure this doesnt break it when minimizing the window

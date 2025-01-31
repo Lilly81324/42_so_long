@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:31:59 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 17:51:09 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 14:51:18 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_check_file(const char *file)
 
 int	ft_check_image_files(void)
 {
-	int sum;
+	int	sum;
 
 	sum = 0;
 	sum += ft_check_file(WALL_TEXTURE);
