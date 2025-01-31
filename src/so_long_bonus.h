@@ -7,5 +7,6 @@ int        ft_check_map_bonus(t_map *map);
 int        ft_check_map_count_bonus(t_map *map);
 int        ft_run_game_bonus(t_map *map);
 int        ft_move_bonus(t_win *win, int dir);
+void	ft_end_kill(t_win *win);
 
 #endif
