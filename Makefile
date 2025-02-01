@@ -3,6 +3,7 @@
 # Add CFLAGS later
 
 PROGRAM = so_long
+BNS_PROGRAM = so_long_bonus
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
@@ -51,13 +52,12 @@ BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
-all: $(MLX_LIB) $(PROGRAM)
+all: $(PROGRAM)
 
-bonus: .bonus_done
+bonus: $(BNS_PROGRAM)
 
-.bonus_done: $(PROGRAM) $(BNS_OBJ_FILES)
-	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
-	touch .bonus_done
+$(BNS_PROGRAM): $(MLX_LIB) $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
+	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(BNS_PROGRAM)
 
 $(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MLX_LIB) $(MAIN_OBJ)
 	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
@@ -87,6 +87,7 @@ fclean: clean
 	make -C $(LIBFT_DIR) fclean
 	rm -rf obj
 	rm -f $(PROGRAM)
+	rm -rf $(BNS_PROGRAM)
 
 show:
 	echo $(SOURCE_FILES)
