@@ -6,14 +6,14 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 17:36:12 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 20:45:58 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 // moves an enemy from fx, fy to tx ty
-void	ft_enemy_move(t_win *win, int fx, int fy, char type)
+void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
 {
 	void	*img;
 	int		si;

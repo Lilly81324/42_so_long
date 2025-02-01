@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_run_game.c                                      :+:      :+:    :+:   */
+/*   ft_run_game_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:44:09 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 20:44:50 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
-		ft_move(win, -01);
+		ft_move_bonus(win, -01);
 	else if (keycode == A_KEY)
-		ft_move(win, -10);
+		ft_move_bonus(win, -10);
 	else if (keycode == S_KEY)
-		ft_move(win, 01);
+		ft_move_bonus(win, 01);
 	else if (keycode == D_KEY)
-		ft_move(win, 10);
+		ft_move_bonus(win, 10);
 	else if (keycode == ESC_KEY)
 		ft_end_quit(win);
 	return (0);
 }
 
-int	ft_run_game(t_map *map)
+int	ft_run_game_bonus(t_map *map)
 {
 	t_win	win;
 	int		wid;

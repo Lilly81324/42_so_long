@@ -15,7 +15,7 @@ CC = cc
 C_FLAGS = -Wall -Wextra -Werror -g3
 MLX_FLAGS = -Lmlx_linux -Imlx_linux -lX11 -lXext -lm -lz -Ofast
 
-SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
+SOURCE_FILES = $(addprefix $(SRC_DIR), \
 				ft_check_map.c \
 				ft_check_map_name.c \
 				ft_cooler_open.c \
@@ -33,19 +33,34 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_end_quit.c \
 				ft_end_win.c \
 				ft_end.c \
-				ft_make_images.c \
+				ft_make_images.c)
+MAIN_SRC =  $(SRC_DIR)aa_main.c
+MAIN_OBJ = $(OBJ_DIR)aa_main.o
+BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
+				aa_main_bonus.c \
+				ft_check_map_bonus.c \
+				ft_check_map_count_bonus.c \
+				ft_run_game_bonus.c \
+				ft_move_bonus.c \
 				ft_enemy_bonus.c \
 				ft_enemy_bounce_bonus.c \
 				ft_enemy_recharge_bonus.c \
 				ft_enemy_decis_bonus.c \
 				ft_enemy_move_bonus.c \
-				ft_end_kill.c)
+				ft_end_kill_bonus.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
+BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
 all: $(MLX_LIB) $(PROGRAM)
 
-$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
+bonus: .bonus_done
+
+.bonus_done: $(PROGRAM) $(BNS_OBJ_FILES)
+	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
+	touch .bonus_done
+
+$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MLX_LIB) $(MAIN_OBJ)
+	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
 
 $(MLX_LIB): minilibx-linux
 	@make -C $(MLX_DIR)

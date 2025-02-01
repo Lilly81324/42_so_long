@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_enemies_bonus.c                            :+:      :+:    :+:   */
+/*   ft_enemy_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:21:56 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 17:44:17 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 22:28:08 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 // for D and R
 // bottom right -> left, then up
@@ -26,10 +26,7 @@ static int	ft_find_en_dr(t_win *win, char type)
 		while (--x > 0)
 		{
 			if (win->map->cont[y][x] == type)
-			{
-				printf("Found %c enemy at %i %i\n", type, x, y);
-				printf("%i\n", ft_enemy_decis(win, x, y, type));
-			}
+				ft_enemy_decis_bonus(win, x, y, type);
 		}
 	}
 	return (0);
@@ -49,10 +46,7 @@ static int	ft_find_en_ul(t_win *win, char type)
 		while (++x < win->map->width - 1)
 		{
 			if (win->map->cont[y][x] == type)
-			{
-				printf("Found %c enemy at %i %i\n", type, x, y);
-				printf("%i\n", ft_enemy_decis(win, x, y, type));
-			}
+				ft_enemy_decis_bonus(win, x, y, type);
 		}
 	}
 	return (0);
@@ -62,12 +56,12 @@ static int	ft_find_en_ul(t_win *win, char type)
 // start top left		-> move right, then down
 // if enemy bounces from R to L then he gets another movement opportunity, when
 // ft_find_en_ul(win, 'L'); is called
-int	ft_enemy(t_win *win)
+int	ft_enemy_bonus(t_win *win)
 {
 	ft_find_en_dr(win, 'D');
 	ft_find_en_dr(win, 'R');
 	ft_find_en_ul(win, 'U');
 	ft_find_en_ul(win, 'L');
-	ft_enemy_recharge(win);
+	ft_enemy_recharge_bonus(win);
 	return (0);
 }

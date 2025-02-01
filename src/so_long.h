@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 17:44:40 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/01 21:43:18 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,5 @@ int		ft_move(t_win *win, int dir);
 int		ft_end_quit(t_win *win);
 void	ft_end_win(t_win *win);
 int		ft_end(t_win *win);
-int		ft_enemy(t_win *win);
-void	ft_enemy_bounce(t_win *win, int x, int y, char type);
-void 	ft_enemy_recharge(t_win *win);
-int		ft_enemy_decis(t_win *win, int posx, int posy, char type);
-void	ft_enemy_move(t_win *win, int fx, int fy, char type);
-void	ft_end_kill(t_win *win);
 
 #endif
