@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 17:17:31 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 17:41:34 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	ft_move(t_win *win, int dir)
 	ft_display_message(win);
 	if (win->map->cont[y][x] == 'E')
 		ft_end_win(win);
+	if (win->map->moves >= MAX_MOVES)
+		ft_end_quit(win);
 	ft_move_player(win, x, y);
 	return (0);
 }

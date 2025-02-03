@@ -12,11 +12,13 @@ OBJ_DIR = ./obj/
 LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
 
+# For compiling
 CC = cc
 C_FLAGS = -Wall -Wextra -Werror
-MLX_FLAGS = -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
+MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11
 INCLUDES = -I/usr/include -Iminilibx-linux
 
+# Files to compile
 SOURCE_FILES = $(addprefix $(SRC_DIR), \
 				ft_check_map.c \
 				ft_check_map_name.c \
@@ -52,6 +54,8 @@ BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
 				ft_end_kill_bonus.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
+
+##############################################################################
 
 all: $(PROGRAM)
 
@@ -94,4 +98,4 @@ show:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean show re

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 15:28:31 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 17:46:17 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ESC_KEY 65307
 # define SPRITE_SIZE 64
 # define CLOSE_BUTTON -16777128
+# define MAX_MOVES 999999999
 # define WALL_TEXTURE "textures/wall.xpm"
 # define FLOOR_TEXTUE "textures/free.xpm"
 # define PLAYER_TEXTURE "textures/player.xpm"
