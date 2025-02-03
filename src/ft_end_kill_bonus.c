@@ -6,13 +6,13 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:39:33 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 17:27:53 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:26:30 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_end_kill_bonus(t_win *win)
+void	ft_end_kill_bonus(t_win *win)
 {
 	int	x;
 	int	y;

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:23:42 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:51:47 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:26:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_enemy_decis_bonus(t_win *win, int posx, int posy, char type)
 		x++;
 	else if (type == 'L')
 		x--;
-	else 
+	else
 		y++;
 	if (win->map->cont[y][x] == 'P')
 	{

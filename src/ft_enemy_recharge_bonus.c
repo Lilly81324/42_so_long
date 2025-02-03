@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:15:17 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:46:04 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:28:36 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // capitalizes certain letters to signify their state
 static void	ft_upper(t_win *win, int x, int y)
 {
-	char type;
+	char	type;
 
 	type = win->map->cont[y][x];
 	if (type == 'u')
@@ -32,10 +32,10 @@ static void	ft_upper(t_win *win, int x, int y)
 }
 
 // makes enemies that used their turn bouncing ready again
-void ft_enemy_recharge_bonus(t_win *win)
+void	ft_enemy_recharge_bonus(t_win *win)
 {
 	int	y;
-	int x;
+	int	x;
 
 	y = 0;
 	while (++y < win->map->height - 1)

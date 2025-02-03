@@ -6,13 +6,13 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:44:09 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:27:48 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int key(int keycode, t_win *win)
+static int	key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
 		ft_move(win, -01);

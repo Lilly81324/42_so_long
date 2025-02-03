@@ -6,13 +6,13 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:44:50 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:27:50 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-static int key(int keycode, t_win *win)
+static int	key(int keycode, t_win *win)
 {
 	if (keycode == W_KEY)
 		ft_move_bonus(win, -01);

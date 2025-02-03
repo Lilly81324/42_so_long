@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 15:00:38 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:27:08 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
 {
 	void	*img;
 	int		si;
-	int 	tx;
+	int		tx;
 	int		ty;
 
 	tx = fx;
@@ -28,7 +28,7 @@ void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
 		tx++;
 	else if (type == 'L')
 		tx--;
-	else 
+	else
 		ty++;
 	si = SPRITE_SIZE;
 	win->map->cont[fy][fx] = '0';

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:34:34 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 17:30:40 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:26:13 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_end_win(t_win *win)
 	, win->map->moves);
 	ft_printf("You managed to bring back all %i Endo\n", win->map->c_tot);
 	if (win->map->e_got > 0)
-		ft_printf("As well as defeating %i/%i Grineer\n", win->map->e_got,\
+		ft_printf("As well as defeating %i/%i Grineer\n", win->map->e_got, \
 	win->map->e_tot);
 	if (win->map->e_tot > 0 && win->map->e_got == 0)
 		ft_printf("\nPACIFISM Achievement unlocked\n");
