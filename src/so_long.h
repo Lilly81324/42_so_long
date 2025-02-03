@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/01 21:43:18 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:01:58 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@
 # define ESC_KEY 65307
 # define SPRITE_SIZE 64
 # define CLOSE_BUTTON -16777128
-# define WALL_TEXTURE "wall.xpm"
-# define FLOOR_TEXTUE "free.xpm"
-# define PLAYER_TEXTURE "player.xpm"
-# define COIN_TEXTURE "coin.xpm"
-# define EXIT_TEXTURE "exit.xpm"
-# define TAKEN "CDELPRU01"
+# define WALL_TEXTURE "textures/wall.xpm"
+# define FLOOR_TEXTUE "textures/free.xpm"
+# define PLAYER_TEXTURE "textures/player.xpm"
+# define COIN_TEXTURE "textures/coin.xpm"
+# define EXIT_TEXTURE "textures/exit.xpm"
+# define UP_TEXTURE "textures/up.xpm"
+# define RIGHT_TEXTURE "textures/right.xpm"
+# define DOWN_TEXTURE "textures/down.xpm"
+# define LEFT_TEXTURE "textures/left.xpm"
+# define TAKEN "CDdELlPRrUu01"
 
 // map object that represents play area
 typedef struct s_map
@@ -71,6 +75,10 @@ typedef struct s_img
 	void	*player;
 	void	*coin;
 	void	*exit;
+	void	*up;
+	void	*right;
+	void	*down;
+	void	*left;
 }	t_img;
 
 // window object which holds map, images and windows
@@ -103,6 +111,8 @@ void	*ft_cont_to_img(t_win *win, char in);
 void	ft_make_images(t_win *win);
 void	ft_display_map(t_win *win);
 int		ft_move(t_win *win, int dir);
+
+// End Conditions
 int		ft_end_quit(t_win *win);
 void	ft_end_win(t_win *win);
 int		ft_end(t_win *win);

@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:02:16 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:45:48 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:10:37 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 // into the opposite direction
 void	ft_enemy_bounce_bonus(t_win *win, int x, int y, char type)
 {
+	void	*img;
+	int		si;
+
+	si = SPRITE_SIZE;
 	if (type == 'U')
 		type = 'd';
 	else if (type == 'D')
@@ -26,4 +30,6 @@ void	ft_enemy_bounce_bonus(t_win *win, int x, int y, char type)
 	else if (type == 'L')
 		type = 'r';
 	win->map->cont[y][x] = type;
+	img = ft_cont_to_img(win, type);
+	mlx_put_image_to_window(win->mlx, win->win, img, x * si, y * si);
 }

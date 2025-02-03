@@ -1,6 +1,5 @@
 # Remember, the .c and .o files have to be in root and not folders for this project!
 # So we will need to change that at the end
-# Add CFLAGS later
 
 PROGRAM = so_long
 BNS_PROGRAM = so_long_bonus
@@ -13,8 +12,10 @@ LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
 
 CC = cc
-C_FLAGS = -Wall -Wextra -Werror -g3
-MLX_FLAGS = -Lmlx_linux -Imlx_linux -lX11 -lXext -lm -lz -Ofast
+C_FLAGS = -Wall -Wextra -Werror
+MLX_FLAGS = -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
+
+INCLUDES = -I/usr/include -Iminilibx-linux
 
 SOURCE_FILES = $(addprefix $(SRC_DIR), \
 				ft_check_map.c \
@@ -56,23 +57,21 @@ all: $(PROGRAM)
 
 bonus: $(BNS_PROGRAM)
 
-$(BNS_PROGRAM): $(MLX_LIB) $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
-	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(BNS_PROGRAM)
+$(BNS_PROGRAM): $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
+	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_FLAGS) $(LIBFT_LIB) -o $(BNS_PROGRAM)
 
-$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MLX_LIB) $(MAIN_OBJ)
-	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
+$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MAIN_OBJ)
+	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
 
-$(MLX_LIB): minilibx-linux
-	@make -C $(MLX_DIR)
-
-minilibx-linux:
+$(MLX_DIR):
 	git clone https://github.com/42Paris/minilibx-linux.git $@
-
-$(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir obj
+
+$(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
+	@make -C $(MLX_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)

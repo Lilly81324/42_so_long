@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:26:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:45:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:00:38 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
 	img = ft_cont_to_img(win, '0');
 	mlx_put_image_to_window(win->mlx, win->win, img, fx * si, fy * si);
 	win->map->cont[ty][tx] = type;
-	img = ft_cont_to_img(win, 'P');
+	img = ft_cont_to_img(win, type);
 	mlx_put_image_to_window(win->mlx, win->win, img, tx * si, ty * si);
 }
