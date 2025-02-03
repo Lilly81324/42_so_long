@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:43:16 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:49:43 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_add_map_c(t_map *map, t_map_cnt *map_c, int i, int j)
 	else if (map->cont[i][j] == '0')
 		return ;
 	else if (ft_char_in_str("URDL", map->cont[i][j]) == 1)
-		return ;
+		map_c->enemies++;
 	else
 		map_c->other++;
 }
@@ -78,6 +78,7 @@ int	ft_check_map_count_bonus(t_map *map)
 		while (++j < map->width)
 			ft_add_map_c(map, &map_c, i, j);
 	}
+	map->e_tot = map_c.enemies;
 	map->c_tot = map_c.c;
 	return (ft_check_valid_chars(&map_c));
 }

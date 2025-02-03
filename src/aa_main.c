@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:47:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 14:27:03 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:51:56 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char *argv[])
 
 	if (ft_check_argc(argc) != 0)
 		return (errno);
+	map.e_got = 0;
 	map.cont = NULL;
 	map.name = argv[1];
 	if (ft_check_map(&map) != 0)
@@ -39,7 +40,3 @@ int	main(int argc, char *argv[])
 		return (ft_free_caa(map.cont, errno));
 	return (ft_free_caa(map.cont, 0));
 }
-
-// do different check for valid map chars in ft_check_map_count
-
-// maybe make bounces also move in their turn

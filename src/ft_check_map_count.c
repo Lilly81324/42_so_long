@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:43:30 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:50:53 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	ft_add_map_c(t_map *map, t_map_cnt *map_c, int i, int j)
 		return ;
 	else
 		map_c->other++;
+	return ;
 }
 
 // Saves the amount of each character in the map
@@ -76,6 +77,7 @@ int	ft_check_map_count(t_map *map)
 		while (++j < map->width)
 			ft_add_map_c(map, &map_c, i, j);
 	}
+	map->e_tot = map_c.enemies;
 	map->c_tot = map_c.c;
 	return (ft_check_valid_chars(&map_c));
 }

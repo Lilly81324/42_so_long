@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:19:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 18:08:52 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:52:22 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ static void	ft_destroy_images(t_win *win)
 	mlx_destroy_image(win->mlx, win->img->player);
 	mlx_destroy_image(win->mlx, win->img->exit);
 	mlx_destroy_image(win->mlx, win->img->empty);
+	mlx_destroy_image(win->mlx, win->img->up);
+	mlx_destroy_image(win->mlx, win->img->right);
+	mlx_destroy_image(win->mlx, win->img->down);
+	mlx_destroy_image(win->mlx, win->img->left);
 	free(win->img);
 }
 

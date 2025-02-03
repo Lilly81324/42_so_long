@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 15:01:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:28:31 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct s_map
 	int		width;
 	int		p_x;
 	int		p_y;
+	int		e_tot;
+	int		e_got;
 	int		c_tot;
 	int		c_got;
 	int		moves;

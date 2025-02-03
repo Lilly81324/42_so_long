@@ -6,6 +6,7 @@ BNS_PROGRAM = so_long_bonus
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
+# Directories
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 LIBFT_DIR = ./libft
@@ -14,7 +15,6 @@ MLX_DIR = ./minilibx-linux
 CC = cc
 C_FLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
-
 INCLUDES = -I/usr/include -Iminilibx-linux
 
 SOURCE_FILES = $(addprefix $(SRC_DIR), \
