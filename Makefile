@@ -1,21 +1,25 @@
 # Remember, the .c and .o files have to be in root and not folders for this project!
 # So we will need to change that at the end
-# Add CFLAGS later
 
 PROGRAM = so_long
+BNS_PROGRAM = so_long_bonus
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
+# Directories
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/
 LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
 
+# For compiling
 CC = cc
-C_FLAGS = -Wall -Wextra -Werror -g3
-MLX_FLAGS = -Lmlx_linux -Imlx_linux -lX11 -lXext -lm -lz -Ofast
+C_FLAGS = -Wall -Wextra -Werror
+MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11
+INCLUDES = -I/usr/include -Iminilibx-linux
 
-SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
+# Files to compile
+SOURCE_FILES = $(addprefix $(SRC_DIR), \
 				ft_check_map.c \
 				ft_check_map_name.c \
 				ft_cooler_open.c \
@@ -34,24 +38,44 @@ SOURCE_FILES = $(addprefix $(SRC_DIR), aa_main.c \
 				ft_end_win.c \
 				ft_end.c \
 				ft_make_images.c)
+MAIN_SRC =  $(SRC_DIR)aa_main.c
+MAIN_OBJ = $(OBJ_DIR)aa_main.o
+BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
+				aa_main_bonus.c \
+				ft_check_map_bonus.c \
+				ft_check_map_count_bonus.c \
+				ft_run_game_bonus.c \
+				ft_move_bonus.c \
+				ft_enemy_bonus.c \
+				ft_enemy_bounce_bonus.c \
+				ft_enemy_recharge_bonus.c \
+				ft_enemy_decis_bonus.c \
+				ft_enemy_move_bonus.c \
+				ft_end_kill_bonus.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
+BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
-all: $(MLX_LIB) $(PROGRAM)
+##############################################################################
 
-$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MLX_LIB)
-	$(CC) $(CFLAGS) $(OBJ_FILES) $(MLX_LIB) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
+all: $(PROGRAM)
 
-$(MLX_LIB): minilibx-linux
-	@make -C $(MLX_DIR)
+bonus: $(BNS_PROGRAM)
 
-minilibx-linux:
+$(BNS_PROGRAM): $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
+	$(CC) $(CFLAGS) $(BNS_OBJ_FILES) $(OBJ_FILES) $(MLX_FLAGS) $(LIBFT_LIB) -o $(BNS_PROGRAM)
+
+$(PROGRAM): $(OBJ_FILES) $(LIBFT_LIB) $(MAIN_OBJ)
+	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
+
+$(MLX_DIR):
 	git clone https://github.com/42Paris/minilibx-linux.git $@
-
-$(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir obj
+
+$(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
+	@make -C $(MLX_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
@@ -66,6 +90,7 @@ fclean: clean
 	make -C $(LIBFT_DIR) fclean
 	rm -rf obj
 	rm -f $(PROGRAM)
+	rm -rf $(BNS_PROGRAM)
 
 show:
 	echo $(SOURCE_FILES)
@@ -73,4 +98,4 @@ show:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean show re

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   ft_move_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 17:41:34 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 17:18:27 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 // moves player to x and y
 // sets players old position to epmty
@@ -32,6 +32,7 @@ static void	ft_move_player(t_win *win, int x, int y)
 				x * si, y * si);
 	win->map->p_x = x;
 	win->map->p_y = y;
+	ft_enemy_bonus(win);
 }
 
 // Displayed every succedsfull move
@@ -64,7 +65,7 @@ static void	ft_display_message(t_win *win)
 // KEY: dir = change in coords:
 // A: 	-10 = -x, 				D: +10 = +x
 // W: 	-01 = -y, 				S: +01 = +y
-int	ft_move(t_win *win, int dir)
+int	ft_move_bonus(t_win *win, int dir)
 {
 	int	x;
 	int	y;
@@ -77,12 +78,12 @@ int	ft_move(t_win *win, int dir)
 		return (1);
 	else if (win->map->cont[y][x] == 'C')
 		win->map->c_got++;
+	else if (ft_char_in_str("URLDurld", win->map->cont[y][x]) == 1)
+		win->map->e_got++;
 	win->map->moves++;
 	ft_display_message(win);
 	if (win->map->cont[y][x] == 'E')
 		ft_end_win(win);
-	if (win->map->moves >= MAX_MOVES)
-		ft_end_quit(win);
 	ft_move_player(win, x, y);
 	return (0);
 }

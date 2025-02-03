@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map_count.c                               :+:      :+:    :+:   */
+/*   ft_check_map_count_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:31:31 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 15:50:53 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:49:43 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,17 @@ static void	ft_add_map_c(t_map *map, t_map_cnt *map_c, int i, int j)
 		map_c->e++;
 	else if (map->cont[i][j] == '0')
 		return ;
+	else if (ft_char_in_str("URDL", map->cont[i][j]) == 1)
+		map_c->enemies++;
 	else
 		map_c->other++;
-	return ;
 }
 
 // Saves the amount of each character in the map
 // into an object which then gets checked for standards
 // returns 0 if nominal
 // returns 1 if error
-int	ft_check_map_count(t_map *map)
+int	ft_check_map_count_bonus(t_map *map)
 {
 	t_map_cnt	map_c;
 	int			i;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_check_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 15:53:43 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/01/31 20:43:00 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 // returns either the first line if valid
 // if invalid, frees and closes map and buffer
@@ -134,7 +134,7 @@ static int	ft_check_map_edges(t_map *map)
 // Check that all the edges are 1s
 // return 0 if map is okay
 // otherwise return 1
-int	ft_check_map(t_map *map)
+int	ft_check_map_bonus(t_map *map)
 {
 	int		fd;
 	char	*first_line;
@@ -152,7 +152,7 @@ int	ft_check_map(t_map *map)
 		return (1);
 	if (ft_get_map_width(map) != 0)
 		return (1);
-	if (ft_check_map_count(map) != 0)
+	if (ft_check_map_count_bonus(map) != 0)
 		return (1);
 	if (ft_check_map_edges(map) != 0)
 		return (1);
