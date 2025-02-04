@@ -51,7 +51,8 @@ BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
 				ft_enemy_recharge_bonus.c \
 				ft_enemy_decis_bonus.c \
 				ft_enemy_move_bonus.c \
-				ft_end_kill_bonus.c)
+				ft_end_kill_bonus.c \
+				ft_draw_number.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
