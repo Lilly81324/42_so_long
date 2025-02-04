@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:28:09 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:16:41 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:33:35 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # define COUNTER_COLOR 10075334
 # define COUNTER_WIDTH 16
 # define COUNTER_HEIGHT 32
-# define COUNTER_WIDE_DEPTH 4
-# define COUNTER_HIGH_DEPTH 4
+# define COUNTER_WIDE_DEPTH 7
+# define COUNTER_HIGH_DEPTH 3
 
 int		ft_check_map_bonus(t_map *map);
 int		ft_check_map_count_bonus(t_map *map);

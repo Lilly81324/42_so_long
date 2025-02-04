@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:05:38 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:21:53 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:31:55 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ void	ft_draw_zero_bonus(t_win *win, int x, int y)
 	height = COUNTER_HEIGHT;
 	width = COUNTER_WIDTH;
 	i = -1;
-	while (++i < 4)
+	while (++i < COUNTER_HIGH_DEPTH)
 		ft_draw_hor_line(win, x, y + i, width);
 	i = -1;
-	while (++i < 4)
+	while (++i < COUNTER_HIGH_DEPTH)
 		ft_draw_hor_line(win, x, y + height - i -1, width);
 	i = -1;
-	while (++i < 4)
+	while (++i < COUNTER_WIDE_DEPTH)
 		ft_draw_ver_line(win, x + i, y, height);
 	i = -1;
-	while (++i < 4)
+	while (++i < COUNTER_WIDE_DEPTH)
 		ft_draw_ver_line(win, x + width - i -1, y, height);
 }
