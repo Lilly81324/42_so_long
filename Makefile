@@ -45,6 +45,7 @@ BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
 				ft_check_map_bonus.c \
 				ft_check_map_count_bonus.c \
 				ft_run_game_bonus.c \
+				ft_display_message_bonus.c \
 				ft_move_bonus.c \
 				ft_enemy_bonus.c \
 				ft_enemy_bounce_bonus.c \
@@ -52,7 +53,17 @@ BNS_SRC_FILES =  $(addprefix $(SRC_DIR), \
 				ft_enemy_decis_bonus.c \
 				ft_enemy_move_bonus.c \
 				ft_end_kill_bonus.c \
-				ft_draw_number.c)
+				ft_draw_counter_bonus.c \
+				ft_draw_zero_bonus.c \
+				ft_draw_one_bonus.c \
+				ft_draw_two_bonus.c \
+				ft_draw_three_bonus.c \
+				ft_draw_four_bonus.c \
+				ft_draw_five_bonus.c \
+				ft_draw_six_bonus.c \
+				ft_draw_seven_bonus.c \
+				ft_draw_eight_bonus.c \
+				ft_draw_nine_bonus.c)
 OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(SOURCE_FILES:%.c=%.o))
 BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
@@ -80,6 +91,9 @@ $(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
 
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
+
+run:
+	valgrind --leak-check=full ./$(BNS_PROGRAM) maps/enemy.ber
 
 clean:
 	-make -sC $(MLX_DIR) clean

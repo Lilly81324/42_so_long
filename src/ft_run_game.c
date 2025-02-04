@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 18:27:48 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:01:33 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	ft_run_game(t_map *map)
 	map->moves = 0;
 	if (ft_check_image_files() != 0)
 		return (1);
-	ft_printf("Moves: %i\n", map->moves);
 	win.map = map;
 	win.mlx = mlx_init();
 	win.win = mlx_new_window(win.mlx, wid, hei, map->name);
