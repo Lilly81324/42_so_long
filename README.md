@@ -9,18 +9,18 @@ If you have WINDOWs then you can install "Windows Subsytem for Linux"
 Requirements:------------------------------------------------------------------
 Requires X11 and some other things I dont fully understand
 Run:
-<sudo apt-get install gcc make xorg libxext-dev libbsd-dev>
+"sudo apt-get install gcc make xorg libxext-dev libbsd-dev"
 to get the required packages
 Also requires git to be able to clone the minilibx into the project,
 as well as needing Make to be able to compile the necessary files
 
 
 Installation:------------------------------------------------------------------
-Just run <make> in the terminal at the root.
+Just run "make" in the terminal at the root.
 (where the highest Makefile is located)
 Alternatively run <make bonus> to compile the bonus version of the programm,
 which allows for enemy patrols.
-Then run <./so_long> or <./so_long_bonus> followed by a space and the
+Then run "./so_long" or "./so_long_bonus" followed by a space and the
 name of a vaild map file ending in .ber
 Example: ./so_long empty.ber
 Example: ./so_long_bonus maps/map1/enemy.ber
@@ -70,3 +70,9 @@ Should an enemy move into the player before that, the player will lose.
 
 There are 2 Achievements hidden in the game, can you find them
 without looking into the source code?
+
+Sprites:-------------
+The player,wall and free sprites were drawn by me and were inspired by Warframe.
+
+The enemy, coin and exit sprites are scaled down and slightly adjusted screenshots of textures from Warfrane.
+A picture of a Grineer Elite Soldier for the Enemy, a picture of Endo for the Collectable Texture and some random hatch from a Grineer Tileset on Earth for the Exit.
