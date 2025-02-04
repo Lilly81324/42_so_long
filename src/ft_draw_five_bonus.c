@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_five.c                                     :+:      :+:    :+:   */
+/*   ft_draw_five_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:13:05 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:13:07 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:25:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ void	ft_draw_five_bonus(t_win *win, int x, int y)
 		ft_draw_hor_line(win, x, y + i, width);
 	i = -1;
 	while (++i < 4)
-		ft_draw_hor_line(win, x, y + (height / 2) -2 + i, width);
+		ft_draw_hor_line(win, x, y + (height / 2) - 2 + i, width);
 	i = -1;
 	while (++i < 4)
-		ft_draw_hor_line(win, x, y + height - i - 1, width);
+		ft_draw_hor_line(win, x, y + height - i -1, width);
 	i = -1;
 	while (++i < 4)
-		ft_draw_ver_line(win, x +i, y, height / 2);
+		ft_draw_ver_line(win, x + i, y, height / 2);
 	i = -1;
 	while (++i < 4)
-		ft_draw_ver_line(win, x +15 -i, y + 16, height / 2);
+		ft_draw_ver_line(win, x +15 - i, y +16, height / 2);
 }

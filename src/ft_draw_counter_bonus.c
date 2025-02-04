@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:20:51 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:18:45 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/04 18:27:38 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_get_digits(int num)
 {
-	int len;
+	int	len;
 
 	len = 1;
 	while (num >= 10)
@@ -56,7 +56,7 @@ static void	ft_num_to_draw(t_win *win, int num, int len)
 	int	y;
 
 	if (num >= 10)
-		ft_num_to_draw(win, num/10, len);
+		ft_num_to_draw(win, num / 10, len);
 	x = win->map->width * SPRITE_SIZE;
 	y = 8;
 	x -= SPRITE_SIZE / 4;
