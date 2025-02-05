@@ -3,35 +3,31 @@ A project working with 3D game designing and window management
 
 
 OS:----------------------------------------------------------------------------<br />
-Needs Linux as Operating System.<br />
+Needs Linux as Operating System.
 If you have WINDOWs then you can install "Windows Subsytem for Linux".<br />
-
-
+<br />
 Requirements:------------------------------------------------------------------<br />
-Requires X11 and some other things I dont fully understand.<br />
-Run:<br />
-**sudo apt-get install gcc make xorg libxext-dev libbsd-dev**<br />
-to get the required packages.<br />
-Also requires git to be able to clone the minilibx into the project,<br />
-as well as needing Make to be able to compile the necessary files.<br />
+Requires X11 and some other things I dont fully understand.
+Run:
+**sudo apt-get install gcc make xorg libxext-dev libbsd-dev**
+to get the required packages.
+Also requires git to be able to clone the minilibx into the project,
+as well as needing Make to be able to compile the necessary files. 
 (Make is included in the above command)<br />
-
-
+<br />
 Installation:------------------------------------------------------------------<br />
-Just run **make** in the terminal at the root.<br />
-(where the highest Makefile is located)<br />
-Alternatively run **make bonus** to compile the bonus version of the programm,<br />
+Just run **make** in the terminal at the root.
+(where the highest Makefile is located)
+Alternatively run **make bonus** to compile the bonus version of the programm,
 which allows for enemy patrols.<br />
-
-
+<br />
 Starting:----------------------------------------------------------------------<br />
 Then run **./so_long** or **./so_long_bonus** followed by a space and the
 name of a vaild map file ending in .ber
 Example: **./so_long empty.ber**
 Example: **./so_long_bonus maps/map1/enemy.ber**
-There is a tutorial below to create valid maps.
-
-
+There is a tutorial below to create valid maps.<br />
+<br />
 Maps:--------------------------------------------------------------------------<br />
 Maps are provided as text files ending in ".ber".
 A line is delimited by being between start of file, 
@@ -59,13 +55,13 @@ Here is a valid map as text:
 1111111
 1E010C1
 1P0C001
-1111111
-
+1111111<br />
+<br />
 Controls:----------------------------------------------------------------------<br />
 W/A/S/D	-	to move around
 ESC		-	to close the game
-Clicking the X in the top right also closes the Game
-
+Clicking the X in the top right also closes the Game<br />
+<br />
 Rules:-------------------------------------------------------------------------<br />
 The player moves before the enemies. If the player enters a field,
 where an enemy stands, then that enemy is defeated.
@@ -75,9 +71,8 @@ The player has to move into all collectables and then move into the exit.
 Should an enemy move into the player before that, the player will lose.
 
 There are 2 Achievements hidden in the bonus version of the game, can you find them
-without looking into the source code?
-
-
+without looking into the source code?<br />
+<br />
 Sprites:-----------------------------------------------------------------------<br />
 The player, wall and free sprites were drawn by me and were inspired by Warframe.
 
