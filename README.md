@@ -2,32 +2,37 @@
 A project working with 3D game designing and window management
 
 
-OS:----------------------------------------------------------------------------
-Needs Linux as Operating System.
-If you have WINDOWs then you can install "Windows Subsytem for Linux".
-
-Requirements:------------------------------------------------------------------
-Requires X11 and some other things I dont fully understand.
-Run:
-"sudo apt-get install gcc make xorg libxext-dev libbsd-dev"
-to get the required packages.
-Also requires git to be able to clone the minilibx into the project,
-as well as needing Make to be able to compile the necessary files. (Make is included in the above command)
+OS:----------------------------------------------------------------------------<br />
+Needs Linux as Operating System.<br />
+If you have WINDOWs then you can install "Windows Subsytem for Linux".<br />
 
 
-Installation:------------------------------------------------------------------
-Just run "make" in the terminal at the root.
-(where the highest Makefile is located)
-Alternatively run <make bonus> to compile the bonus version of the programm,
-which allows for enemy patrols.
-Then run "./so_long" or "./so_long_bonus" followed by a space and the
+Requirements:------------------------------------------------------------------<br />
+Requires X11 and some other things I dont fully understand.<br />
+Run:<br />
+**sudo apt-get install gcc make xorg libxext-dev libbsd-dev**<br />
+to get the required packages.<br />
+Also requires git to be able to clone the minilibx into the project,<br />
+as well as needing Make to be able to compile the necessary files.<br />
+(Make is included in the above command)<br />
+
+
+Installation:------------------------------------------------------------------<br />
+Just run **make** in the terminal at the root.<br />
+(where the highest Makefile is located)<br />
+Alternatively run **make bonus** to compile the bonus version of the programm,<br />
+which allows for enemy patrols.<br />
+
+
+Starting:----------------------------------------------------------------------<br />
+Then run **./so_long** or **./so_long_bonus** followed by a space and the
 name of a vaild map file ending in .ber
-Example: ./so_long empty.ber
-Example: ./so_long_bonus maps/map1/enemy.ber
+Example: **./so_long empty.ber**
+Example: **./so_long_bonus maps/map1/enemy.ber**
 There is a tutorial below to create valid maps.
 
 
-Maps:--------------------------------------------------------------------------__
+Maps:--------------------------------------------------------------------------<br />
 Maps are provided as text files ending in ".ber".
 A line is delimited by being between start of file, 
 '\n' and by the end of file.
@@ -61,8 +66,7 @@ W/A/S/D	-	to move around
 ESC		-	to close the game
 Clicking the X in the top right also closes the Game
 
-Rules:-------------------------------------------------------------------------<
->
+Rules:-------------------------------------------------------------------------<br />
 The player moves before the enemies. If the player enters a field,
 where an enemy stands, then that enemy is defeated.
 Should the player move to a field, and an enemy then move to that field,
@@ -74,7 +78,7 @@ There are 2 Achievements hidden in the bonus version of the game, can you find t
 without looking into the source code?
 
 
-Sprites:-----------------------------------------------------------------------
+Sprites:-----------------------------------------------------------------------<br />
 The player, wall and free sprites were drawn by me and were inspired by Warframe.
 
 The enemy, coin and exit sprites are scaled down and slightly adjusted screenshots of textures from Warfrane.
