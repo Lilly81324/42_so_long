@@ -97,18 +97,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
 
-run:
-	valgrind --leak-check=full ./$(BNS_PROGRAM) maps/enemy.ber
-
 clean:
 	-make -sC $(MLX_DIR) clean
 	make -C $(LIBFT_DIR) clean
-	rm -rf $(OBJ_FILES)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -rf $(MLX_DIR)
 	make -C $(LIBFT_DIR) fclean
-	rm -rf obj
 	rm -rf $(BASE)
 	rm -rf $(BONUS)
 	rm -f $(PROGRAM)
@@ -117,6 +113,9 @@ show:
 	echo $(SOURCE_FILES)
 	echo $(OBJ_FILES)
 
+run:
+	valgrind --leak-check=full ./$(PROGRAM) maps/enemy.ber
+
 re: fclean all
 
-.PHONY: all clean fclean show re
+.PHONY: all bonus clean fclean show run re

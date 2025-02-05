@@ -27,7 +27,7 @@ Example: ./so_long_bonus maps/map1/enemy.ber
 There is a tutorial below to create valid maps.
 
 
-Maps:--------------------------------------------------------------------------
+Maps:--------------------------------------------------------------------------__
 Maps are provided as text files ending in ".ber".
 A line is delimited by being between start of file, 
 '\n' and by the end of file.
@@ -56,12 +56,13 @@ Here is a valid map as text:
 1P0C001
 1111111
 
-Controls:----------------------------------------------------------------------
+Controls:----------------------------------------------------------------------<br />
 W/A/S/D	-	to move around
 ESC		-	to close the game
 Clicking the X in the top right also closes the Game
 
-Rules:-------------------------------------------------------------------------
+Rules:-------------------------------------------------------------------------<
+>
 The player moves before the enemies. If the player enters a field,
 where an enemy stands, then that enemy is defeated.
 Should the player move to a field, and an enemy then move to that field,
