@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:20:51 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:27:38 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:09:23 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,9 @@ static void	ft_num_to_draw(t_win *win, int num, int len)
 	if (num >= 10)
 		ft_num_to_draw(win, num / 10, len);
 	x = win->map->width * SPRITE_SIZE;
-	y = 8;
-	x -= SPRITE_SIZE / 4;
-	x -= SPRITE_SIZE / 8;
-	x -= (SPRITE_SIZE / 2) * (len - ft_get_digits(num));
+	y = COUNTER_Y_OFFSET;
+	x -= COUNTER_X_OFFSET + COUNTER_WIDTH;
+	x -= (COUNTER_SPACING + COUNTER_WIDTH) * (len - ft_get_digits(num));
 	ft_translate_number(win, num, x, y);
 }
 

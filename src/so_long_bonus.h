@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:28:09 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:33:35 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:17:23 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,39 @@
 
 # include "so_long.h"
 
+// Colour from HEX to Decimal code converted
 # define COUNTER_COLOR 10075334
-# define COUNTER_WIDTH 16
-# define COUNTER_HEIGHT 32
-# define COUNTER_WIDE_DEPTH 7
+// Width of each number in the counter
+# define COUNTER_WIDTH 21
+// Height of each number in the counter
+# define COUNTER_HEIGHT 48
+// How far form the top the counter begins,
+# define COUNTER_Y_OFFSET 8
+// How far form the right side the counter begins,
+# define COUNTER_X_OFFSET 8
+// Spacing between each character
+# define COUNTER_SPACING 10
+// How wide each vertical line in the counter is
+# define COUNTER_WIDE_DEPTH 6
+// How high each horizontal line in the counter is
 # define COUNTER_HIGH_DEPTH 3
 
+// Adjusted base functions for bonus
 int		ft_check_map_bonus(t_map *map);
 int		ft_check_map_count_bonus(t_map *map);
 int		ft_run_game_bonus(t_map *map);
 void	ft_display_message_bonus(t_win *win);
 int		ft_move_bonus(t_win *win, int dir);
+
+// Enemy behaviour
 int		ft_enemy_bonus(t_win *win);
+int		ft_enemy_decis_bonus(t_win *win, int posx, int posy, char type);
 void	ft_enemy_bounce_bonus(t_win *win, int x, int y, char type);
 void	ft_enemy_recharge_bonus(t_win *win);
-int		ft_enemy_decis_bonus(t_win *win, int posx, int posy, char type);
 void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type);
 void	ft_end_kill_bonus(t_win *win);
+
+// For drawing the counter
 void	ft_draw_counter_bonus(t_win *win);
 void	ft_draw_zero_bonus(t_win *win, int x, int y);
 void	ft_draw_one_bonus(t_win *win, int x, int y);

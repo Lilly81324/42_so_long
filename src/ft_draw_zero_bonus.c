@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:05:38 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:31:55 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:20:22 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,15 @@ void	ft_draw_zero_bonus(t_win *win, int x, int y)
 	while (++i < COUNTER_WIDE_DEPTH)
 		ft_draw_ver_line(win, x + width - i -1, y, height);
 }
+
+// For Number debugging:
+// printf("Starting h at %i %i: ", x + i +1, y);
+// while (++i < length)
+// 	mlx_pixel_put(win->mlx, win->win, x + i, y, COUNTER_COLOR);
+// printf("Ending h at %i %i\n", x + i -1, y);	
+// printf("Starting v at %i %i: ", x, y + i + 1);
+// while (++i < length)
+// 	mlx_pixel_put(win->mlx, win->win, x, y + i, COUNTER_COLOR);
+// printf("Ending v at %i %i\n", x, y + i - 1);	
+// x = 0;
+// y = 0;
