@@ -7,7 +7,7 @@ If you have WINDOWs then you can install "Windows Subsytem for Linux".<br />
 <br />
 <br />
 Requirements:------------------------------------------------------------------<br />
-Requires X11 and some other things I dont fully understand.
+Requires X11 and some other things I dont fully understand.<br />
 Run:<br />
 "**sudo apt-get install gcc make xorg libxext-dev libbsd-dev**"
 to get the required packages.<br />
@@ -49,7 +49,7 @@ P 		- 	Player; or their starting position.<br />
 E 		- 	Exit; that blocks movement until all collectables have been 
 gathered. At which point it opens up and allows the user to win the game.<br />
 C 		- 	Collectables; that all need to be gathered in order to win the game.<br />
-The following only works for the bonus version:<br />
+**The following only works for the bonus version:**<br />
 U/D/L/R -	Enemies; which move [U]pward [D]ownward, [L]eft or [R]ight.
 They move until they hit anything, at which point they will turn
 around next round, turning a [L]eftie into a [R]ight enemy.
