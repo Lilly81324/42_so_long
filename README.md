@@ -69,7 +69,7 @@ the player is defeated.
 The player has to move into all collectables and then move into the exit.
 Should an enemy move into the player before that, the player will lose.
 
-There are 2 Achievements hidden in the game, can you find them
+There are 2 Achievements hidden in the bonus version of the game, can you find them
 without looking into the source code?
 
 

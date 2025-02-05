@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 17:46:17 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/05 17:28:58 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,35 @@
 # include <fcntl.h>
 # include <errno.h>
 
+// Translation from key input to keycode
 # define W_KEY 119
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
 # define ESC_KEY 65307
-# define SPRITE_SIZE 64
 # define CLOSE_BUTTON -16777128
-# define MAX_MOVES 999999999
+
+// Dont touch this, it wont look good
+// Size of each tile, if sprite is bigger, it gets cut off
+# define SPRITE_SIZE 64
+// Not needed, still used, can be increased without issue
+# define MAX_MOVES 999999
+// Name/Path of texture files
+// rename here to change file you want to display
 # define WALL_TEXTURE "textures/wall.xpm"
 # define FLOOR_TEXTUE "textures/free.xpm"
 # define PLAYER_TEXTURE "textures/player.xpm"
 # define COIN_TEXTURE "textures/coin.xpm"
 # define EXIT_TEXTURE "textures/exit.xpm"
+// Enemy textures
 # define UP_TEXTURE "textures/up.xpm"
 # define RIGHT_TEXTURE "textures/right.xpm"
 # define DOWN_TEXTURE "textures/down.xpm"
 # define LEFT_TEXTURE "textures/left.xpm"
+// Not used, just there for tracking what characters are okay in the grid
 # define TAKEN "CDdELlPRrUu01"
 
-// map object that represents play area
+// Map object that represents play area
 typedef struct s_map
 {
 	char	*name;
