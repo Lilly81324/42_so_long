@@ -14,21 +14,23 @@ Run:
 to get the required packages.
 Also requires git to be able to clone the minilibx into the project,
 as well as needing Make to be able to compile the necessary files. 
-(Make is included in the above command)<br />
+(Make is included in the above command)
 <br />
 <br />
 Installation:------------------------------------------------------------------<br />
-Just run **make** in the terminal at the root.
+Just run "**make**" in the terminal at the root.
 (where the highest Makefile is located)
-Alternatively run **make bonus** to compile the bonus version of the programm,
-which allows for enemy patrols.<br />
+Alternatively run "**make bonus**" to compile the bonus version of the programm,
+which allows for enemy patrols.
+Running "**make**" and "**make bonus**" is exclusive and switches the version of
+the so_long programm respectively.
 <br />
 <br />
 Starting:----------------------------------------------------------------------<br />
-Then run **./so_long** or **./so_long_bonus** followed by a space and the
+Then run "**./so_long**" followed by a space and the
 name of a vaild map file ending in .ber
-Example: **./so_long empty.ber**
-Example: **./so_long_bonus maps/map1/enemy.ber**
+Example: "**./so_long empty.ber**"
+Example: "**./so_long maps/map1/enemy.ber**"
 There is a tutorial below to create valid maps.<br />
 <br />
 <br />
