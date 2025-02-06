@@ -6,12 +6,16 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:24:03 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/06 14:24:41 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:14:32 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+// Checks wether each file is openable
+// Add 
+// ft_printf("Could not open %s\n", file);
+// before the return (1) statemenet for more info which file
 static int	ft_check_file(const char *file)
 {
 	int	fd;
@@ -19,8 +23,6 @@ static int	ft_check_file(const char *file)
 	fd = ft_cooler_open((char *)file, 1);
 	if (fd < 0)
 	{
-		close (fd);
-		ft_printf("Could not open %s\n", file);
 		return (1);
 	}
 	close (fd);
