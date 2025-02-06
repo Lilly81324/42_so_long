@@ -112,14 +112,12 @@ fclean: clean
 	rm -rf $(BONUS)
 	rm -f $(PROGRAM)
 
-lib: $(LIBFT_DIR)
-
 show:
 	echo $(SOURCE_FILES)
 	echo $(OBJ_FILES)
 
 run:
-	valgrind --leak-check=full ./$(PROGRAM) maps/enemy.ber
+	valgrind --leak-check=full ./$(PROGRAM) map.ber
 
 re: fclean all
 
