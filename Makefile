@@ -8,7 +8,7 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
 # Directories
-SRC_DIR = ./src/
+SRC_DIR = ./
 OBJ_DIR = ./obj/
 LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
@@ -72,7 +72,7 @@ BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
 all: $(BASE)
 
-$(BASE): $(OBJ_FILES) $(LIBFT_LIB) $(MAIN_OBJ)
+$(BASE): $(LIBFT_LIB) $(OBJ_FILES) $(MAIN_OBJ)
 	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
 	rm -rf .bonus
 	touch $(BASE)
@@ -84,6 +84,9 @@ $(BONUS): $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
 	rm -rf .base
 	touch $(BONUS)
 
+$(LIBFT_DIR):
+	git clone git@github.com:Lilly81324/42_libft.git $(LIBFT_DIR)
+
 $(MLX_DIR):
 	git clone https://github.com/42Paris/minilibx-linux.git $@
 
@@ -94,20 +97,22 @@ $(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
 	@make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT_LIB):
+$(LIBFT_LIB): $(LIBFT_DIR)
 	make -C $(LIBFT_DIR)
 
 clean:
 	-make -sC $(MLX_DIR) clean
-	make -C $(LIBFT_DIR) clean
+	-make -C $(LIBFT_DIR) clean
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -rf $(MLX_DIR)
-	make -C $(LIBFT_DIR) fclean
+	-make -C $(LIBFT_DIR) fclean
 	rm -rf $(BASE)
 	rm -rf $(BONUS)
 	rm -f $(PROGRAM)
+
+lib: $(LIBFT_DIR)
 
 show:
 	echo $(SOURCE_FILES)
