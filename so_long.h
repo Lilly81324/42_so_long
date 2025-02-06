@@ -6,17 +6,17 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/06 14:37:15 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:01:12 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-# include "../libft/ft_printf.h"
-# include "../minilibx-linux/mlx.h"
+# include "./libft/libft.h"
+# include "./libft/get_next_line.h"
+# include "./libft/ft_printf.h"
+# include "./minilibx-linux/mlx.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>

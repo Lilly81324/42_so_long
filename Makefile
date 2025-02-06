@@ -6,7 +6,7 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
 # Directories
-SRC_DIR = ./src/
+SRC_DIR = ./
 OBJ_DIR = ./obj/
 LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
