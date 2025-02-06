@@ -72,7 +72,7 @@ BNS_OBJ_FILES = $(subst $(SRC_DIR),$(OBJ_DIR),$(BNS_SRC_FILES:%.c=%.o))
 
 all: $(BASE)
 
-$(BASE): $(OBJ_FILES) $(LIBFT_LIB) $(MAIN_OBJ)
+$(BASE): $(LIBFT_LIB) $(OBJ_FILES) $(MAIN_OBJ)
 	$(CC) $(CFLAGS) $(OBJ_FILES) $(MAIN_OBJ) $(MLX_FLAGS) $(LIBFT_LIB) -o $(PROGRAM)
 	rm -rf .bonus
 	touch $(BASE)
@@ -84,6 +84,9 @@ $(BONUS): $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
 	rm -rf .base
 	touch $(BONUS)
 
+$(LIBFT_DIR):
+	git clone git@github.com:Lilly81324/42_libft.git $@
+
 $(MLX_DIR):
 	git clone https://github.com/42Paris/minilibx-linux.git $@
 
@@ -94,7 +97,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(MLX_DIR)
 	@make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT_LIB):
+$(LIBFT_LIB): $(LIBFT_DIR)
 	make -C $(LIBFT_DIR)
 
 clean:
@@ -104,7 +107,7 @@ clean:
 
 fclean: clean
 	rm -rf $(MLX_DIR)
-	make -C $(LIBFT_DIR) fclean
+	-make -C $(LIBFT_DIR) fclean
 	rm -rf $(BASE)
 	rm -rf $(BONUS)
 	rm -f $(PROGRAM)
@@ -114,7 +117,7 @@ show:
 	echo $(OBJ_FILES)
 
 run:
-	valgrind --leak-check=full ./$(PROGRAM) maps/enemy.ber
+	valgrind --leak-check=full ./$(PROGRAM) map.ber
 
 re: fclean all
 
