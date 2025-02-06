@@ -85,7 +85,7 @@ $(BONUS): $(LIBFT_LIB) $(OBJ_FILES) $(BNS_OBJ_FILES)
 	touch $(BONUS)
 
 $(LIBFT_DIR):
-	git clone git@github.com:Lilly81324/42_libft.git $(LIBFT_DIR)
+	git clone git@github.com:Lilly81324/42_libft.git $@
 
 $(MLX_DIR):
 	git clone https://github.com/42Paris/minilibx-linux.git $@
