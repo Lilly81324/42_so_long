@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/05 17:20:04 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:39:44 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_move_bonus(t_win *win, int dir)
 	else if (ft_char_in_str("URLDurld", win->map->cont[y][x]) == 1)
 		win->map->e_got++;
 	win->map->moves++;
-	ft_display_message_bonus(win);
+	ft_display_message(win);
 	if (win->map->cont[y][x] == 'E')
 		ft_end_win(win);
 	if (win->map->moves >= MAX_MOVES)

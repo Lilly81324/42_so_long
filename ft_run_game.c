@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:21:20 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:01:33 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:37:56 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	ft_run_game(t_map *map)
 	win.win = mlx_new_window(win.mlx, wid, hei, map->name);
 	ft_make_images(&win);
 	ft_display_map(&win);
+	ft_display_message(&win);
 	mlx_key_hook(win.win, key, &win);
 	mlx_hook(win.win, 17, 0, ft_end_quit, &win);
 	mlx_loop(win.mlx);

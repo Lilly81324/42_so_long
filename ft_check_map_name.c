@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:46:39 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 17:08:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:03:25 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ static int	ft_ends_in(const char *comp, int len, char *src)
 	return (0);
 }
 
+// Checks, that the name is <something.ber>
+// returns 1 if no
+// returns 0 if yes
 int	ft_check_map_name(t_map *map)
 {
 	int	i;

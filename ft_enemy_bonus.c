@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:21:56 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 22:28:08 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:41:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ static int	ft_find_en_ul(t_win *win, char type)
 
 // start bottom right	-> move left, then up
 // start top left		-> move right, then down
-// if enemy bounces from R to L then he gets another movement opportunity, when
-// ft_find_en_ul(win, 'L'); is called
+// if enemy bounces from R to L then he gets another movement opportunity,
+// when ft_find_en_ul(win, 'L'); is called, so thats why a bouncing enemy
+// gets set to 'l', who will, after all movement is done, get turened to 'L'
 int	ft_enemy_bonus(t_win *win)
 {
 	ft_find_en_dr(win, 'D');

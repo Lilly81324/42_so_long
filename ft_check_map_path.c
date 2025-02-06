@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:54:30 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/30 17:36:01 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:08:12 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	ft_get_player_start_pos(t_map *map)
 	}
 }
 
+// Flood Fill, that stops at exit, walls or flooded tiles
+// also counts up how many collectables and exits reached
 static void	ft_flood_fill(t_map *map, t_map_cnt *map_c, int x, int y)
 {
 	if (map->cont[y][x] == 'X' || map->cont[y][x] == '1')
@@ -100,9 +102,3 @@ int	ft_check_map_path(t_map *map)
 		return (ft_err_msg("Not all collectables reachable", 5));
 	return (0);
 }
-
-// map->cont[y][x] is how to use x and y
-// count collectible number
-// get position of player
-// floodfill starting from player
-// if floodfill can find all collectibles and the exit

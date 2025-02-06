@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:40:52 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 20:43:00 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:04:21 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static char	*ft_check_first_line(int fd)
 	first_line = get_next_line(fd);
 	if (first_line == NULL || first_line[0] == '\0' || first_line[0] == '\n')
 	{
-		ft_printf("Error\n");
-		perror("Map File is empty or invalid");
+		ft_err_msg("Map File is empty or invalid", 5);
 		free(first_line);
 		first_line = NULL;
 	}
@@ -36,7 +35,6 @@ static char	*ft_check_first_line(int fd)
 		first_line = get_next_line(fd);
 	}
 	close(fd);
-	errno = 5;
 	return (NULL);
 }
 
@@ -45,10 +43,8 @@ static char	*ft_check_first_line(int fd)
 // closes the file, since it needs to read through
 static void	ft_get_map_height(t_map *map, int fd, char *first_line)
 {
-	int		joever;
 	char	*line;
 
-	joever = 0;
 	line = first_line;
 	map->height = 0;
 	while (line != NULL && line[0] != '\n')

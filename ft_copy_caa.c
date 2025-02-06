@@ -6,13 +6,14 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:12:11 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/23 18:43:26 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:47:24 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // creates and returns a copy of an array of arrays of characters
+// used to prepare a copy pof map->content to flood fill
 char	**ft_copy_caa(char **orig)
 {
 	int		i;

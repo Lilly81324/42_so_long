@@ -6,12 +6,13 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:20:51 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/05 17:09:23 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 12:46:34 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+// Returns how many digits a positive number has
 static int	ft_get_digits(int num)
 {
 	int	len;
@@ -25,6 +26,7 @@ static int	ft_get_digits(int num)
 	return (len);
 }
 
+// Runs the function for drawing the number, based off that <num>
 static void	ft_translate_number(t_win *win, int num, int x, int y)
 {
 	if (num % 10 == 0)
@@ -64,6 +66,8 @@ static void	ft_num_to_draw(t_win *win, int num, int len)
 	ft_translate_number(win, num, x, y);
 }
 
+// Draws the first line again, so the pixels of the old counter get
+// removed and then draws the number of moves recursively 
 void	ft_draw_counter_bonus(t_win *win)
 {
 	int	i;
