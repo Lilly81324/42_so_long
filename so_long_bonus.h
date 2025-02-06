@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:28:09 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/05 17:17:23 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:40:00 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "so_long.h"
 
+// For changing the look of the counter, all values in pixels
 // Colour from HEX to Decimal code converted
 # define COUNTER_COLOR 10075334
 // Width of each number in the counter
@@ -35,8 +36,9 @@
 // Adjusted base functions for bonus
 int		ft_check_map_bonus(t_map *map);
 int		ft_check_map_count_bonus(t_map *map);
+int		ft_check_image_files_bonus(void);
 int		ft_run_game_bonus(t_map *map);
-void	ft_display_message_bonus(t_win *win);
+void	ft_make_images_bonus(t_win *win);
 int		ft_move_bonus(t_win *win, int dir);
 
 // Enemy behaviour

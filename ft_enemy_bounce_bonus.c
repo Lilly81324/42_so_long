@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enemy_move_bonus.c                              :+:      :+:    :+:   */
+/*   ft_enemy_bounce_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 17:26:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 18:27:08 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/31 17:02:16 by sikunne           #+#    #+#             */
+/*   Updated: 2025/02/06 12:38:28 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-// moves an enemy from fx, fy to tx ty
-void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
+// makes the enemy 'bounce' off an obstacle in their way
+// consumes that enemies turn and changes their type
+// into the opposite direction
+// sets them to the lower state (U->u) so their turn isnt repeated
+// Small stated are changed back at end of movement (u->U)
+void	ft_enemy_bounce_bonus(t_win *win, int x, int y, char type)
 {
 	void	*img;
 	int		si;
-	int		tx;
-	int		ty;
 
-	tx = fx;
-	ty = fy;
-	if (type == 'U')
-		ty--;
-	else if (type == 'R')
-		tx++;
-	else if (type == 'L')
-		tx--;
-	else
-		ty++;
 	si = SPRITE_SIZE;
-	win->map->cont[fy][fx] = '0';
-	img = ft_cont_to_img(win, '0');
-	mlx_put_image_to_window(win->mlx, win->win, img, fx * si, fy * si);
-	win->map->cont[ty][tx] = type;
+	if (type == 'U')
+		type = 'd';
+	else if (type == 'D')
+		type = 'u';
+	else if (type == 'R')
+		type = 'l';
+	else if (type == 'L')
+		type = 'r';
+	win->map->cont[y][x] = type;
 	img = ft_cont_to_img(win, type);
-	mlx_put_image_to_window(win->mlx, win->win, img, tx * si, ty * si);
+	mlx_put_image_to_window(win->mlx, win->win, img, x * si, y * si);
 }

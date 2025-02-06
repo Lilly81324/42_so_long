@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enemy_bounce_bonus.c                            :+:      :+:    :+:   */
+/*   ft_enemy_move_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 17:02:16 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/03 18:26:41 by sikunne          ###   ########.fr       */
+/*   Created: 2025/01/31 17:26:49 by sikunne           #+#    #+#             */
+/*   Updated: 2025/02/06 12:36:23 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-// makes the enemy 'bounce' off an obstacle in thier way
-// consumes that enemies turn and changes their type
-// into the opposite direction
-void	ft_enemy_bounce_bonus(t_win *win, int x, int y, char type)
+// moves an enemy from fx, fy to tx, ty
+void	ft_enemy_move_bonus(t_win *win, int fx, int fy, char type)
 {
 	void	*img;
 	int		si;
+	int		tx;
+	int		ty;
 
-	si = SPRITE_SIZE;
+	tx = fx;
+	ty = fy;
 	if (type == 'U')
-		type = 'd';
-	else if (type == 'D')
-		type = 'u';
+		ty--;
 	else if (type == 'R')
-		type = 'l';
+		tx++;
 	else if (type == 'L')
-		type = 'r';
-	win->map->cont[y][x] = type;
+		tx--;
+	else
+		ty++;
+	si = SPRITE_SIZE;
+	win->map->cont[fy][fx] = '0';
+	img = ft_cont_to_img(win, '0');
+	mlx_put_image_to_window(win->mlx, win->win, img, fx * si, fy * si);
+	win->map->cont[ty][tx] = type;
 	img = ft_cont_to_img(win, type);
-	mlx_put_image_to_window(win->mlx, win->win, img, x * si, y * si);
+	mlx_put_image_to_window(win->mlx, win->win, img, tx * si, ty * si);
 }

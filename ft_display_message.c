@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_message_bonus.c                         :+:      :+:    :+:   */
+/*   ft_display_message.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 18:00:18 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/04 18:00:39 by sikunne          ###   ########.fr       */
+/*   Created: 2025/02/06 14:36:20 by sikunne           #+#    #+#             */
+/*   Updated: 2025/02/06 14:37:09 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
-// Displayed every successfull move
-void	ft_display_message_bonus(t_win *win)
+// Displayed every succesfull move
+void	ft_display_message(t_win *win)
 {
 	int	got;
 	int	tot;

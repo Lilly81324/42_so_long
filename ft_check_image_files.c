@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:31:59 by sikunne           #+#    #+#             */
-/*   Updated: 2025/01/31 14:51:18 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:24:54 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ static int	ft_check_file(const char *file)
 	return (0);
 }
 
+// Checks, wether all neccesary files can be opened
+// returns 1 if no
+// returns 0 if yes
 int	ft_check_image_files(void)
 {
 	int	sum;

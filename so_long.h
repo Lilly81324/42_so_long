@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:19:49 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/05 17:28:58 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:37:15 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ int		ft_check_image_files(void);
 void	*ft_cont_to_img(t_win *win, char in);
 void	ft_make_images(t_win *win);
 void	ft_display_map(t_win *win);
+void	ft_display_message(t_win *win);
 int		ft_move(t_win *win, int dir);
 
 // End Conditions
