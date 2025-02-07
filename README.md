@@ -1,6 +1,11 @@
 # 42_so_long
 A project working with 3D game designing and window management<br />
 
+# IMPORTANT:
+In my evaluation my use of errno was critisized, so mazbe leave that stuff out of our code.
+The way my Makefile used the "al" rule to NOT compile the $NAME was also critised, so be
+carefull around the compiling of the programm as well
+
 OS:----------------------------------------------------------------------------<br />
 Needs Linux as Operating System.<br />
 If you have WINDOWs then you can install "Windows Subsytem for Linux".<br />
