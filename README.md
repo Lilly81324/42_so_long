@@ -1,10 +1,13 @@
 # 42_so_long
 A project working with 3D game designing and window management<br />
-
+<br />
+The "submitted" branch is the one I actually submitted<br />
+<br />
 # EVAL CRITIC (IMPORTANT):
-In my evaluation my use of errno was critisized, so mazbe leave that stuff out of our code.
-The way my Makefile used the "al" rule to NOT compile the $NAME was also critised, so be
+In my evaluation my use of errno was critisized, so maybe leave that stuff out of our code.
+The way my Makefile used the "all" rule to NOT compile the $NAME was also critised, so be
 carefull around the compiling of the programm as well
+It was also critisized that I didnt submit any test maps, even if the subject didnt specify this.
 
 OS:----------------------------------------------------------------------------<br />
 Needs Linux as Operating System.<br />
