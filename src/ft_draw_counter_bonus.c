@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:20:51 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/06 12:46:34 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/04/09 14:45:20 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void	ft_draw_counter_bonus(t_win *win)
 	i = -1;
 	while (++i < win->map->width)
 		mlx_put_image_to_window(win->mlx, win->win, win->img->wall, \
-		i * SPRITE_SIZE, 0);
+i * SPRITE_SIZE, 0);
 	ft_num_to_draw(win, win->map->moves, ft_get_digits(win->map->moves));
 }

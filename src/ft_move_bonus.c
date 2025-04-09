@@ -6,7 +6,7 @@
 /*   By: sikunne <sikunne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:13:04 by sikunne           #+#    #+#             */
-/*   Updated: 2025/02/06 14:39:44 by sikunne          ###   ########.fr       */
+/*   Updated: 2025/04/09 14:49:32 by sikunne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void	ft_move_player(t_win *win, int x, int y)
 	win->map->cont[win->map->p_y][win->map->p_x] = '0';
 	img = ft_cont_to_img(win, '0');
 	mlx_put_image_to_window(win->mlx, win->win, img, \
-				win->map->p_x * si, win->map->p_y * si);
+win->map->p_x * si, win->map->p_y * si);
 	win->map->cont[y][x] = 'P';
 	img = ft_cont_to_img(win, 'P');
 	mlx_put_image_to_window(win->mlx, win->win, img, \
-				x * si, y * si);
+x * si, y * si);
 	win->map->p_x = x;
 	win->map->p_y = y;
 	ft_enemy_bonus(win);
