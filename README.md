@@ -2,6 +2,8 @@
 A project working with 3D game designing and window management<br />
 <br />
 The "submitted" branch is the one I actually submitted<br />
+The submitted branch was for an older version of norminette.<br />
+The new Norm Fixes were applied to main, but not submitted.<br />
 <br />
 # EVAL CRITIC (IMPORTANT):
 In my evaluation my use of errno was critisized, so maybe leave that stuff out of our code.
